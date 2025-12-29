@@ -1,0 +1,364 @@
+Syllabus
+
+1️⃣ FRONTEND SYLLABUS (UI / Client Side)
+Web Fundamentals
+
+HTML & HTML5
+
+CSS & CSS3
+
+JavaScript Basics
+
+DOM Manipulation
+
+Responsive Web Design
+
+Bootstrap
+
+UI Design Principles
+
+Angular Framework
+
+Angular Introduction & Architecture
+
+Modules
+
+Components
+
+Templates
+
+Data Binding
+
+Directives
+
+Pipes
+
+Services
+
+Dependency Injection
+
+Routing
+
+Forms
+
+Template-Driven Forms
+
+Reactive Forms
+
+HTTP Client
+
+Angular Lifecycle Hooks
+
+Error Handling
+
+📌 Interview Focus
+
+Difference between SPA & traditional web apps
+
+Component vs Module
+
+Dependency Injection
+
+Routing & Forms
+
+2️⃣ BACKEND SYLLABUS (Java & Frameworks)
+Core Java
+
+JVM, JRE, JDK
+
+Data Types & Variables
+
+Operators
+
+Control Flow Statements
+
+Loops
+
+Arrays & Strings
+
+Methods & Constructors
+
+Access Modifiers
+
+Static & Final Keywords
+
+Packages
+
+Wrapper Classes
+
+Exception Handling
+
+File Handling
+
+Multithreading
+
+Java Collections Framework
+
+Java 8 Features
+
+Lambda Expressions
+
+Streams API
+
+📌 Interview Focus
+
+OOP concepts
+
+Exception vs Error
+
+List vs Set vs Map
+
+Multithreading basics
+
+Object-Oriented Programming (OOP)
+
+Class & Object
+
+Encapsulation
+
+Inheritance
+
+Polymorphism
+
+Abstraction
+
+Interfaces
+
+Abstract Classes
+
+IS-A & HAS-A Relationships
+
+📌 Interview Focus
+
+Interface vs Abstract class
+
+Runtime vs Compile-time polymorphism
+
+Advanced Java
+
+JDBC
+
+Servlets
+
+JSP
+
+MVC Architecture
+
+Request & Response Cycle
+
+Session Management
+
+Filters
+
+Listeners
+
+📌 Interview Focus
+
+MVC flow
+
+Session vs Cookies
+
+Servlet lifecycle
+
+Spring & Spring Boot
+
+Spring Framework Overview
+
+Spring Core
+
+Inversion of Control (IoC)
+
+Dependency Injection
+
+Spring Bean Lifecycle
+
+Spring MVC
+
+RESTful Web Services
+
+Spring Boot Overview & Architecture
+
+Spring Boot Annotations
+
+Exception Handling in Spring
+
+Validation
+
+Spring Security (Basic Overview)
+
+📌 Interview Focus
+
+Spring vs Spring Boot
+
+REST principles
+
+@Component vs @Service vs @Repository
+
+Annotations
+
+Testing
+
+Unit Testing Concepts
+
+JUnit
+
+Mockito
+
+Assertions
+
+Mocking
+
+Test Cases
+
+📌 Interview Focus
+
+Unit testing vs Integration testing
+
+Why Mockito is used
+
+3️⃣ DATABASE SYLLABUS
+SQL & RDBMS
+
+Database Fundamentals
+
+RDBMS Concepts
+
+Tables & Relationships
+
+Keys
+
+Primary Key
+
+Foreign Key
+
+Constraints
+
+SQL Queries
+
+DDL, DML, DCL, TCL
+
+Joins
+
+Subqueries
+
+Indexes
+
+Views
+
+Normalization
+
+📌 Interview Focus
+
+Different types of joins
+
+Normalization forms
+
+Primary key vs Unique key
+
+Hibernate (ORM)
+
+ORM Concepts
+
+Hibernate Architecture
+
+Hibernate Configuration
+
+Entity Mapping
+
+Annotations
+
+Session
+
+SessionFactory
+
+Transaction
+
+HQL
+
+Criteria API
+
+Relationships
+
+One-to-One
+
+One-to-Many
+
+Many-to-Many
+
+Caching
+
+📌 Interview Focus
+
+Hibernate vs JDBC
+
+First-level vs Second-level cache
+
+Lazy vs Eager loading
+
+4️⃣ TOOLS & DEV PRACTICES
+
+Git
+
+GitHub
+
+Version Control Concepts
+
+Maven
+
+Build Lifecycle
+
+Project Structure
+
+IDE Usage (Eclipse / IntelliJ)
+
+Debugging Techniques
+
+Application Deployment Basics
+
+📌 Interview Focus
+
+Git commands
+
+Maven lifecycle
+
+5️⃣ SOFTWARE ENGINEERING & SDLC
+
+Introduction to Software Engineering
+
+SDLC Models
+
+Waterfall Model
+
+Agile Methodology
+
+Scrum Framework
+
+Requirement Analysis
+
+Use Case Diagrams
+
+UML Diagrams
+
+Design Principles
+
+Real-World Case Studies
+
+📌 Interview Focus
+
+Agile vs Waterfall
+
+Scrum roles & ceremonies
+
+🎯 FINAL INTERVIEW PRIORITY ORDER (VERY IMPORTANT)
+
+Core Java + OOP
+
+SQL + Hibernate
+
+Spring Boot + REST APIs
+
+Angular Basics
+
+Git, Maven, Testing
+
+SDLC & Agile
