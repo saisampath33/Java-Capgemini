@@ -1,0 +1,17 @@
+Non - Primitive Datatype
+
+default value is null
+we can store the reference/address
+Every class is non primitive
+String - Non primitive data type coz it is a classname
+we can create variable using non primitive data type
+
+		Variable
+Data type			Scope
+
+Primitive 			Local
+Non primitive			Static/class variable
+				Non Static/instance variable
+
+Local - A variable created in method block or any other except class block
+we cannot use this variable without initializing the value if we use like that then compile time error

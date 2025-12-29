@@ -1,0 +1,107 @@
+✅ When to use static
+
+Use static when:
+
+The value is common for all objects
+
+You don’t need object-specific data
+
+You want to access it without creating an object
+
+🧠 Why?
+
+Because static members are loaded once into memory, shared by all objects.
+
+non-static — Object Level
+
+✅ When to use non-static
+
+Use non-static when:
+
+Each object needs its own data
+
+Behavior depends on object state
+
+You must access instance variables
+
+🧠 Why?
+
+Because non-static members live inside objects.
+
+OOPS:
+Object-Oriented Programming is a methodology or paradigm to design a program using classes and objects
+
+Any entity states and the behaviours/actions is called object.
+contains variables and methods
+
+A class is a template or blueprint for creating objects
+A class is to execute a act.
+
+An object is a real-world entity that has
+👉 state (data) and
+👉 behavior (methods)
+
+new is block of memory
+constructor loads all variables and methods into that block that is object.
+
+Demo d = new Demo();
+d is non primitive but it reference to another block so it is also a reference variable
+
+constructor will load only non static member of class
+
+class Demo{
+    int a; -> non static variable
+    static int b;
+}
+
+new memory block(creation of object) -> constructor loads for non static
+we should create object to use or call for non static variables
+
+Constructor: special member of class
+same as classname
+used to load the non static members in object
+			**Constructors**
+
+Default Constructor 				Programmer Defined Constructor -> No argument and Parameterized Constructor
+The constructor created by compiler
+so it is running if we just create object
+It is added when no constructor is created by programmer
+If you write even one constructor, Java does NOT create the default constructor.
+
+Syntax
+Acceess Modifier className(){
+}
+
+No argument:
+It does not take any parameters
+Programmer will write this
+
+Parameterized Constructor:
+We should give parameters
+We can pass the values into object itself.
+We can reduce LOC
+
+this keyword is a non static variable used for current object reference(local variable name and object variable name should be same then this is used).
+
+Constructor Overloading: process of creating multiple constructor in same class
+
+If only one parameter given then accept it
+if we have two parameter then use it
+if 3 then also accept
+
+Constructor Chaining:
+
+To reuse initialization logic
+To reduce duplicate code
+To control the order of initialization
+
+Constructor Chaining means calling one constructor from another constructor within the same class or a parent class.
+Calling the constructor which perform the same task
+c1 c2 c3
+c2 can call c1
+c3 can call c2 and c1
+We should use this() call statement -> this() must be the first statement in the constructor and only this call statement in used in constructor
+
+Non static method
+with object we can use these methods
+
