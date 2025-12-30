@@ -19,7 +19,7 @@ class College{
 		this.age = age;
 	}
 	static void get() {
-		System.out.println("Hello");
+		System.out.println("Hello "+collegename);
 	}
 }
 public class Example {
@@ -27,7 +27,7 @@ public class Example {
 	public static void main(String[] args) {
 		College obj = new College("Sampath",21);
 		obj.getdetails();
-		College.get();
+		College.get(); //without creating object
 
 	}
 

@@ -1,0 +1,11 @@
+OOPS-Encapsulation
+
+Any language which supports OOPS principle so it is known OOP language
+To design the real world application it is used
+Design one type and use it for every object
+
+1)Encapsulation
+2)Inheritance
+3)Polymorphism
+4)Abstraction
+
