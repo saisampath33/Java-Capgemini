@@ -1,0 +1,6 @@
+Passing Reference to method
+
+Helper Method or Factory method 
+
+Method Chaining - The process of calling method one after the another by using .
+when we can achieve the object reference
