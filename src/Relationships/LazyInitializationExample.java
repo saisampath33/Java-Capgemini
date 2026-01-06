@@ -66,7 +66,6 @@ public class LazyInitializationExample {
 //		for (int i = 0; i < c.getTyres().size(); i++) {
 //			System.out.println(c.getTyres()[i].getBrand());
 //		}
-
 		for (Tyre t : c.getTyres()) {
 			System.out.println(t.getBrand());
 		}
