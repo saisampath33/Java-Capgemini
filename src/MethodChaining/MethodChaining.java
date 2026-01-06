@@ -17,5 +17,4 @@ public class MethodChaining {
 		System.out.println(m);
 		System.out.println(obj);
 	}
-	
 }

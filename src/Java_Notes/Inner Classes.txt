@@ -1,0 +1,26 @@
+Inner Classes
+
+Characteristics of Static Inner Class
+
+✔ Does not need outer class object
+✔ Can access only static members of outer class
+✔ Can have static variables & methods
+✔ Created using Outer.Inner
+
+Characteristics of Non-Static Inner Class
+
+✔ Requires outer class object
+✔ Can access both static & non-static members
+✔ Cannot have static members
+✔ Created using outerObj.new Inner()
+
+Static Inner Class
+
+A static inner class does not require an instance of the outer class and can access only static members of the outer class.
+
+Non-Static Inner Class
+
+A non-static inner class requires an instance of the outer class and can access both static and non-static members
+
+Static talks to static only
+Non-static talks to everything
