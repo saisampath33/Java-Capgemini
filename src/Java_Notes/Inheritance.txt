@@ -1,0 +1,83 @@
+Inheritance
+
+One class acquiring the properties of another class
+The one class whose properties are inherited by anther is parent,base class
+the class which inherits is child class
+
+extends -> 2 classes or 2 interfaces
+implements -> 1 class and 1 interface ->for a IS-A relationship then interface is parent and class is child
+
+static members
+class A{
+	static int a;
+	p s v method1(){
+	s o pln("Parent");
+	}
+}
+class B extends A{
+	p s v main(){
+	s o pln(a);
+	method1(); //This will work Class A members also there in class B
+	}
+}
+
+if there is extends keyword no need to give classname as reference to call only static variable or method. We can directly call it
+
+These can be inherited
+static members - variables , methods
+non static members - variables , methods 
+
+These cannot be inherited
+static members - intializers
+non static members - initializers and constructors
+
+super() call statement we can call constructors from parent class used to initialize parent members from child class constructor
+super keyword - when parent and child class has same identifiers we can differentiate by the super keyword 
+ 
+5 types
+
+Single Level - Having only one parent class and one child class
+Multilevel - Having more than one level of inheritance
+Hierarchal - One parent multiple childs
+Multiple - One child Multiple parents not possible by classes
+Hybrid 
+
+we can achieve non primitive type casting if it is a IS-A relationship
+
+Casting = converting one type of reference into another type
+
+upcasting -> The process of converting child type of reference into the parent type(compiler will do implicitly) Also called implicit casting
+downcasting -> The process of converting parent type of reference into the child type(lossy conversion) It is explicit casting
+we should type cast operator
+Without Upcasting we cant do the downcasting
+
+Upcasting and Downcasting deal ONLY with object references
+instanceOf operator return Boolean
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

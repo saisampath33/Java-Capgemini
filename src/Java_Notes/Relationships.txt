@@ -1,6 +1,121 @@
 Passing Reference to method
 
-Helper Method or Factory method 
+Helper Method or Factory method
 
 Method Chaining - The process of calling method one after the another by using .
 when we can achieve the object reference
+
+Relationships:
+To represent the connection between 2 objects same like real world
+how classes are connected to each other
+
+HAS-A - Association(Composition/Aggregation)
+IS-A - Inheritance
+
+
+IS-A means “is a type of”
+
+A class inherits another class using the extends keyword.
+
+Car IS-A Vehicle
+
+Dog IS-A Animal
+
+Student IS-A Person
+
+Achieved using inheritance
+Uses extends
+Supports method overriding
+Enables runtime polymorphism
+
+Reusability - Compile time
+Coupling - Tight
+
+HAS-A
+
+HAS-A means “has a” or “uses a”
+
+One class contains an object of another class.
+
+Car HAS-A Engine
+
+Student HAS-A Address
+
+Company HAS-A Employees
+
+Achieved using object creation
+Uses instance variables - An instance variable in Java is a non-static variable declared within a class but outside of any method, constructor, or block.
+More flexible than inheritance
+Preferred in real-world applications
+
+Types of HAS-A Relationship
+
+Two forms of association -> aggregation and composition
+Aggregation (Weak HAS-A)
+
+Objects can exist independently - College HAS-A Students (Even if college closes, students still exist) and Coupling - LOOSE by lazy loading
+
+
+
+Composition (Strong HAS-A)
+
+Objects cannot exist independently - House HAS-A Rooms (If house is destroyed, rooms are destroyed) and Coupling - TIGHT by using early loading
+
+
+Reusability - Runtime
+Coupling - LOOSE
+Better Maintainability
+
+Here, One object depends on other and we can achieve this by creating a reference variable for it
+
+One class contains a reference variable
+That reference variable points to an object of another class
+One class contains reference variable of another class
+
+Both aggregation and composition use reference variables, but aggregation creates objects outside the class, while composition creates objects inside the class.
+
+🔹 If object comes from outside → Aggregation
+🔹 If object is born inside → Composition
+
+HAS-A relationship can be achieved in Java by creating a reference variable of one class inside another class.
+The object can be created inside the class (composition), passed through a constructor, passed through a setter method (aggregation), or created inside a method. HAS-A relationship can be achieved in Java by creating a reference variable of one class inside another class.
+The object can be created inside the class (composition), passed through a constructor, passed through a setter method (aggregation), or created inside a method.
+
+
+Early instantiation
+It means creating an object at the time of reference variable declaration.
+
+In simple words:
+Object is created before it is actually needed
+
+We use single line non static initializers
+
+Object is created earlier than required
+Created before method execution
+Created during class/object initialization
+
+if we want to create multiple objects for example 4 types of car instead of taking 4 variables we can take array of it
+
+Lazy Instantiation
+
+We will only create the object when we need it(later)
+Saves memory
+Improves performance
+Useful for heavy objects (DB, network, files)
+Avoids unnecessary object creation.
+
+Creating objects inside method
+
+Lazy instantiation is the process of creating an object only when it is required, instead of creating it at the time of reference variable declaration. It helps in saving memory and improving performance.
+
+class Car {
+    Engine eng;   // only reference
+
+    void drive() {
+        if (eng == null) {
+            eng = new Engine(); // lazy instantiation
+        }
+        eng.start();
+        System.out.println("Car is moving");
+    }
+}

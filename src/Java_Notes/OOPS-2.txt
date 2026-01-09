@@ -9,3 +9,30 @@ Design one type and use it for every object
 3)Polymorphism
 4)Abstraction
 
+Encapsulation
+
+process of wrapping variables(states) and methods(behaviors) in a single unit.
+Advantage -> Data Hiding-> Hiding the data using access modifiers (private) -> No one can access this data directly we can access indirectly using methods(getters(Read the data) and setters(Write/Modify the data))
+
+for one property we should have different getter and setter method
+java beam class(class contains private data members and public getters and setters) and inner class
+
+Ex
+ATM -> atmid,location,money(States) and withdraw(),deposit(), check balance() (Behaviors) ->These all are wrapped in single class to achieve encapsulation
+
+public -> we can use anywhere wherever we want (High visibility and accessibility)
+protected -> we can access only in same package (if there is IS-A (Inheritance) relationship then we can access in different package like sub class in another package)
+private -> Accessing in same class() (Less visibility and accessibility)
+Default -> we can access only inside the same package (if we did not give any access modifier it will be considered)
+
+Static Inner Class
+Why Java has Inner Classes?
+
+1️⃣ To logically group related classes
+2️⃣ To increase encapsulation
+3️⃣ To access private members of outer class
+4️⃣ To reduce code clutter
+
+Declared with static
+Belongs to class, not object
+Can access only static members of outer class
