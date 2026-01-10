@@ -2,7 +2,6 @@ package Abstraction;
 
 public class Banking_Application {
 	public static void main(String[] args) {
-	
 		BankAccount acc = new Savings(10000);
 		BankAccount acc1 = new Current(12000);
 		acc.deposit(1230);
