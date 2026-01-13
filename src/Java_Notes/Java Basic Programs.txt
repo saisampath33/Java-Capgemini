@@ -1,0 +1,363 @@
+Java Basic Programs
+
+===================Reversing a number===================
+
+class Main {
+    public static void main(String[] args) {
+        int num = 12345;
+        int rev = 0;
+        while(num >0){
+            int digit = (num%10);
+            rev = rev*10;
+             rev += digit;
+            num = num/10;
+        }
+        System.out.println(rev);
+    }
+}
+
+
+====================Palindrome of a string====================
+
+class Main {
+    public static void main(String[] args) {
+    //String a = "MarkraM";
+    String a = "tomato";
+    String rev = "";
+    String b = "otamot";
+    for(int i=a.length()-1;i>=0;i--){
+        rev += a.charAt(i);
+    }
+    // System.out.println(rev);
+    if(b.equals(rev)){
+        System.out.println("Given string is a palindrome");
+    }else{
+        System.out.println("Not a palindrome");
+    }
+    
+    }
+
+
+==================Armstrong number or not=====================
+
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+    int num = 153;
+    int originalnum = num;
+    int digits =0;
+    // counting the number of digits in a number
+    while(num >0){
+        int aa = num%10;
+        digits++;
+        num = num/10;
+    }
+    // System.out.println(digits);
+    // num becomes zer so again im initializing it
+    num = originalnum;
+    int sum =0;
+    while(num >0){
+        int lastdigit = num%10;
+        sum += Math.pow(lastdigit,digits);
+        num = num/10;
+    }
+    if(originalnum == sum)
+    {
+        System.out.println("Armstrong number");
+    }else{
+        System.out.println("Not an armstrong number");
+    }
+    }
+}
+
+
+
+===============================Second Largest Element======================
+
+class Main {
+    public static void main(String[] args) {
+        int[] arr = {3, 5, 4, 2, 6, 1, 7, 8};
+        int largest = Integer.MIN_VALUE;
+        int secondlargest = Integer.MIN_VALUE;
+
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] > largest) {
+                secondlargest = largest;
+                largest = arr[i];
+            } else if (arr[i] > secondlargest && arr[i] != largest) {
+                secondlargest = arr[i];
+            }
+        }
+
+        if (secondlargest == Integer.MIN_VALUE) {
+            System.out.println("No second largest element found.");
+        } else {
+            System.out.println("Second largest: " + secondlargest);
+        }
+    }
+}
+
+
+
+======================Reversing words in a string================================
+
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        String a = "Java is fun";
+        String[] sentence = a.split(" ");
+        String rev = "";
+        for(int i=0;i<sentence.length;i++){
+            String word = sentence[i];
+            int n = word.length();
+            String wordrev = "";
+            for(int j=n-1;j>=0;j--){
+                wordrev += word.charAt(j);
+        }
+        rev += wordrev+" ";
+    }
+    System.out.println(rev);
+}
+}
+
+
+==========================Count no of words in a string==========================
+
+
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        String a = "Java is fun";
+        String[] sentence = a.split(" "); // use this for double and more spaces  a.trim().split("\\s+");
+        int count =0;
+        for(int i=0;i<sentence.length;i++){
+        count++;
+    }
+    System.out.println(count);
+}
+}
+
+
+======================Fibonacci Series==========================================
+
+import java.util.*;
+
+class Main {
+    public static void main(String[] args) {
+        int a = 0;
+        int b = 1;
+
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+
+        if (n <= 0) {
+            System.out.println("Enter the positive value of n");
+        } else if (n == 1) {
+            System.out.println(a);
+        } else if (n == 2) {
+            System.out.println(a);
+            System.out.println(b);
+        } else {
+            System.out.println(a);
+            System.out.println(b);
+            for (int i = 0; i < n - 2; i++) {
+                int c = a + b;
+                System.out.println(c);
+                a = b;
+                b = c;
+            }
+        }
+    }
+}
+
+====================Fibonacci series Recursion method=================
+
+import java.util.*;
+class Main {
+    public static int Fib(int n){
+        if(n ==0) return 0;
+        if(n ==1) return 1;
+        return Fib(n-1)+Fib(n-2);
+    }
+    public static void main(String[] args) {
+      Scanner sc = new Scanner(System.in);
+      int n = sc.nextInt();
+      for(int i=0;i<n;i++){
+          System.out.println(Fib(i));
+      }
+    }
+}
+
+=========================Prime number========================
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int count =0;
+        int n = sc.nextInt();
+        if(n < 2 ){
+            System.out.println(n+"Not a prime number");
+        }
+        if(n >= 2){
+        for(int i=1;i<=n;i++){
+            if(n % i == 0){
+                count++;
+            }
+        }
+        }
+        if(count == 2){
+            System.out.println(n +" is a Primenumber");
+        }else{
+            System.out.println(n+" is not a primenumber");
+        }
+    }
+
+
+================Prime number==============================
+
+class Main {
+    public static void main(String[] args) {
+        int n = 14;
+        boolean isPrime = true;
+
+        for (int i = 2; i * i <= n; i++) { // or i<n;
+            if (n % i == 0) {
+                isPrime = false;
+                break;
+            }
+        }
+
+        if (n <= 1) {
+            System.out.println("Not a prime");
+        } else if (isPrime) {
+            System.out.println("Prime");
+        } else {
+            System.out.println("Not a prime");
+        }
+    }
+}
+
+
+====================Count the no of occurences of a character in a string==================
+
+class Main {
+    public static void main(String[] args) {
+        String str = "abagbdhaaa";
+        char c = 'a';
+        int count = 0;
+        for(int i =0;i<str.length();i++){
+            if(str.charAt(i) == c){
+                count++;
+            }
+        }
+        System.out.println(count);
+    }
+}
+
+
+================================Binary search============================================
+
+
+import java.util.Arrays;
+
+class Main {
+    public static int BinarySearch(int m, int[] arr) {
+        // Sort the array before performing binary search
+        Arrays.sort(arr);
+        
+        int l = 0;
+        int r = arr.length - 1;
+        
+        while (l <= r) {
+            int mid = l + (r - l) / 2;
+            
+            if (arr[mid] == m) {
+                return mid; // Element found, return index
+            } else if (arr[mid] < m) {
+                l = mid + 1;
+            } else {
+                r = mid - 1;
+            }
+        }
+        return -1; // Element not found
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {3, 2, 5, 7, 4, 1, 8};
+        int result = BinarySearch(1, arr);
+        System.out.println(result); // Output: index after sorting
+    }
+}
+
+
+================================Factorial of a number===============================
+
+
+class Main {
+    public static int factorial(int n){
+        if(n == 0) return 1;
+        return n*factorial(n-1);
+    }
+    public static void main(String[] args) {
+        System.out.println(factorial(4));
+    }
+}
+
+
+
+=================================Leap year or not=======================================
+
+// Online Java Compiler
+// Use this editor to write, compile and run your Java code online
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        if(n % 100 == 0){
+            if(n % 400 == 0){
+                System.out.println("Given num  is a leap year");
+            }else{
+                System.out.println("Not a leap year");
+            }
+        }else if(n % 4 == 0){
+            System.out.println("Given num  is a leapyear");
+        }else{
+            System.out.println("Not a leap year");
+        }
+    }
+}
+
+
+
+======================LCM and GCD of two numbers=======================
+
+
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+       Scanner sc = new Scanner(System.in);
+    //   int a = sc.nextInt();
+    //   int b = sc.nextInt();
+    int a = 3;
+    int b = 27;
+       int lcm = Math.max(a,b);// lcm of two numbers more than or equal to greatest number
+       boolean temp = true;
+       while(temp){
+           if(lcm%a == 0 && lcm%b ==0){ 
+               temp = false;
+           }else{
+           lcm++;
+           }
+       }
+       System.out.println("lCM of a and b is: "+lcm);
+       // gcd(a,b) = (a*b)/lcm(a,b);
+       int gcd = (a*b)/lcm;
+       System.out.println("GCD of a and b is: "+gcd);
+    }
+}

@@ -1,5 +1,6 @@
 package ObjectClass;
 
+
 class Box
 {
 	int price;
@@ -18,7 +19,25 @@ class Phone{
 	public String toString() {
 		return "Phone-->[ Ram: "+ram+" Rom: "+rom+" ]";
 	}
+	
 }
+class Student{
+	String name;
+	int id;
+	String address;
+	Student(String name,int id,String address){
+		this.name = name;
+		this.id = id;
+		this.address = address;
+	}
+	public String toString() {
+		return "Student Name";
+	}
+	public boolean equals(Student s) {
+		return this.name == s.name && this.id== s.id && this.address == s.address;
+	}
+}
+
 public class MainApp {
 
 	public static void main(String[] args) {
@@ -34,6 +53,6 @@ public class MainApp {
 		for(int i=0;i<arr.length;i++) {
 			System.out.println(arr[i]);
 		}
+		
 	}
-
 }

@@ -1,0 +1,32 @@
+Abstraction
+
+1 abstract class -> An abstract class is a partially implemented class that cannot be instantiated
+2 interfaces
+
+Hiding the internal details
+
+concrete method = defined(declared) and implementation
+
+incomplete/abstract  method - only method declaration no implementation
+
+abstract class => we can write complete method and abstract method -> we cant create the object of this class as it is incompleted class. we can achieve partial abstraction coz we have both concrete and normal incomplete methods 
+
+interface - Fully abstraction - write only abstract methods - bydefault it is public 
+After java 8 - implements key words
+
+Interface → Interface ➜ extends
+Class → Interface ➜ implements
+Class → Class ➜ extends
+
+We cannot execute the interface like in main method
+
+We can achieve multiple inheritance
+
+we cant create object of interface
+
+non static variables and methods are not allowed in interface
+static methods, abstract methods, default methods 
+public static final variables are allowed
+
+
+Functional interface - if interface contains only one abstract method.
