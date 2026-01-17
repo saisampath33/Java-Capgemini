@@ -9,6 +9,7 @@ public class Advance_String_Problems {
 		}
 		return true;
 	}
+	
 	public static boolean string_contains_digits_builtin(String s) {
 		for(char c : s.toCharArray()) {
 			if(!Character.isDigit(c)) {
@@ -17,6 +18,7 @@ public class Advance_String_Problems {
 		}
 		return true;
 	}
+	
 	public static String removeSpecial(String s) {
 		return s.replaceAll("[^a-zA-Z0-9]", s);
 	}
