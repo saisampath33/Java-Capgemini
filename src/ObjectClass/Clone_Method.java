@@ -13,7 +13,7 @@ class Employee implements Cloneable {
 
     @Override
     protected Object clone() throws CloneNotSupportedException {
-        return super.clone();  // creates copy
+        return super.clone();  // creates copy of obj
     }
 }
 
