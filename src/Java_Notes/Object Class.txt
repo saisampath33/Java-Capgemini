@@ -1,3 +1,63 @@
 Object Class
 
+In Java, the Object class is the root (parent) class of all classes.
+present in java.lang package
+11 non static methods in object class
+Every class you create in Java automatically extends Object, even if you don’t write it explicitly.
 
+toString();
+equals(Object ref)
+hashCode()
+getClass()
+clone()
+wait()
+wait(long)
+wait(int,long)
+finalize()
+notify()
+notifyAll()
+
+toString() is used to return a string representation of an object.
+public String toString(){
+ 	return getClass().getName()+"@"+Integer.toHexaString().hashCode();
+}
+gives address of any object (This is a converted address)
+where toString method implicitly called
+
+we can override this toString
+
+Student s = new Student();
+System.out.println(s);   // internally calls s.toString() -> ClassName@HexadecimalHashCode
+
+Rules for toString()
+
+✔ Must return String
+✔ No parameters
+✔ Access modifier should be public
+✔ Annotation @Override is recommended
+
+
+equals(Object)
+
+Default equals() compares memory addresses, NOT content. It checks Content (if overridden)
+== -> checks address of both for primitive data types
+CurrentObject.equals(pastObject) //for non primitive data types
+
+HasHcode
+hashCode() method returns the hash value of an object (not its memory address). Used heavily in hash-based collections like HashMap, HashSet, etc
+Hashcode gives a unique hash value for every object based on their address and if we overrided it we can get same hashcode value same object values
+If we check these two hashcode value then it is true same like equals methods it checks content and hashcode checks the integer value is same or not
+Instead of generating integer number we can generate the integer number based on states
+public int hashCode(){
+ 	return this.name.hashCode() + age + this.address.hashCode(); //.hashcode() converts String to integer
+}
+
+
+getClass() -> to get the classname and package where the particular object belongs to
+
+finalize() -> finalize() is a method of the Object class that is called by Garbage Collector before an object is destroyed.
+Before object is deleted, we may want to:
+✔ Close file
+✔ Close DB connection
+✔ Release memory
+That logic can be written in finalize().

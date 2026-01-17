@@ -18,17 +18,17 @@ public class Boxing {
 		Integer y = x;
 		System.out.println(y);
 		
-		//Unboxing
+		//Un-boxing
 		int u = y.intValue();
 		System.out.println(u);
 		
-		//boxing and unboxing
+		//boxing and un-boxing
 		byte x1 = 50;
 		Byte y1 = Byte.valueOf(x1); //box
 		byte z1 = y1.byteValue(); //un box
 		System.out.println(z1);
 		
-		//auto unboxing
+		//auto un-boxing
 		int var = 77;
 		Integer d1 = var;
 		int f1 = d1;

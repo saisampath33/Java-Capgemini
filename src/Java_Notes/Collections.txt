@@ -1,0 +1,54 @@
+Collections - Group of classes
+
+										Java Collection Framework (JCF)
+
+										Iterable(Interface) -> Present in java.lang
+				
+										Collection(Interface) -> From here all are present in java.util
+
+							 List(interface)	 	Set(Interface)				 Queue(Interface)
+							 ArrayList		 HashSet	SortedSet(Interface)		 Priority Queue
+							 LinkedList		 LinkedHashSet	     TreeSet		 	 Deque(Interface and Child of Queue)
+							 Vector			 							ArrayDeque
+							    Stack									LinkedList
+
+
+Linked list is inheriting by two parents so it is multiple inheritance
+
+Iterable
+
+Root interface
+Enables for-each loop
+
+Collection
+
+Parent of List, Set, Queue
+Basic operations:
+add()
+addAll() -> adding collection to another collection
+remove()
+size()
+isEmpty()
+
+Inside collection interface -> all methods are present here 
+
+ArrayList implementing class of List Interface
+
+Stores Heterogenous data -> meaning it can store elements of different data types. 
+Indexing
+Duplicate allowed
+We can add null value
+Insertion order is there
+Fast access
+
+Methods which implement from Collection Interface
+//addAll(collection) accept collection type of reference
+//add(object) accept Object type of reference
+
+Methods which implement from List Interface
+add(index,object)
+addAll(index,collection)
+
+
+
+Add custom object in collection

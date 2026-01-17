@@ -1,0 +1,28 @@
+File Handling
+
+To store the data in file for permenant use
+Data will store in form of strings
+package is java.io
+
+filereader and bufferreader
+filewriter and bufferwriter
+
+Serialization in Java means:
+Store object in file
+Converting an object into a byte stream
+
+so that it can be:
+saved into a file
+sent over a network
+stored in a database
+transferred between JVMs
+
+Seriazable is a marker interface(No methods it is empty)
+
+✅ Serialization:
+
+Object → Byte Stream (Save/Transfer)
+
+✅ Deserialization:
+
+Byte Stream → Object (Get back original object)
