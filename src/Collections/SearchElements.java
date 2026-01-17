@@ -14,6 +14,8 @@ public class SearchElements {
 		System.out.println(al);
 		System.out.println(al.contains(20)); //gives boolean value
 		System.out.println(al.indexOf(20)); //gives index
+		
+		
 
 	}
 
