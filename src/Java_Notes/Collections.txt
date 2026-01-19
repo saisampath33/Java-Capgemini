@@ -49,6 +49,54 @@ Methods which implement from List Interface
 add(index,object)
 addAll(index,collection)
 
-
-
 Add custom object in collection
+
+Access the element
+get -> only in LISTS
+for each
+Iterator
+
+
+
+Iterable(Interface) contains iterator() method -> which is helper method which create object return the refernce
+
+Iterator(Interface) -> next() and hasNext() these both method implementation have in different classes
+
+listname.iterator() -> helps to create object of hasNext() and next() which gives the address of object
+To store it
+Iterator i = listname.iterator();
+i.next() //calling method of child class using parent reference
+gives the current element and points to the next element -> next() method
+If no element is there in next then NoSuchElementException will come
+
+To avoid this exception
+hasNext() ->  return type is Boolean(Checks if the element is there)
+If next element is there(By hasNext()) then use next() to print current element
+
+
+Iterator i = listname.iterator() // here we are converting the whole collection into iterator type where we cant add remove element
+
+This is available for all type of collections
+
+In list hierachy we have  one more iterator that is ListIterator -> only in LIST
+We can move forward and backward traversal
+
+In ListIterator
+Package: java.util
+Type: interface
+It extends Iterator
+
+next()
+hasNext() -> boolean
+previous()
+hasPrevious() -> boolean
+
+List interface only has methods which return ListIterator
+
+
+Collection interface
+1 remove(Object)-> Remove element by value
+2 remove(index) -> remove(int index) exists in List interface, not in Collection.
+3 removeAll(Collection c) -> Removes all elements from current collection that are present in the given collection c. list1.removeAll(list2);
+4 retainAll(Collection c) -> Keeps only those elements which are common in both collections.
+5 clear() -> Removes everything from the collection.

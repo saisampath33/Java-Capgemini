@@ -1,0 +1,22 @@
+Comparable Interface
+
+It is functional interface present in java.lang package
+Here objects only doing comparison
+We should implement this and override the compareTo  method for custom comparing like only comparing id in object
+
+
+
+Comparator Interface
+Two objects are there third person is comparing two objects
+we should pass third person
+override cmpare mmethod which internally call compareTo method
+java.util package
+
+
+📌 Comparable = "I can compare myself with others"
+📌 Comparator = "I will compare two objects
+
+sort() calls:
+
+compare() → if you use Comparator 
+compareTo() → if you use Comparable
