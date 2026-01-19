@@ -11,13 +11,13 @@ public class Searching_Name_Employee {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter Employee name: ");
 		String nameString = sc.next();
-		boolean found = false;
+		boolean found = true;
 
 		ListIterator listIterator = al.listIterator();
 		while (listIterator.hasNext()) {
 			Employee tempEmployee = (Employee) listIterator.next();
 			if (tempEmployee.name.equals(nameString)) {
-				found = true;
+				found = false;
 				System.out.println("Employee exists");
 				System.out.println("Employee Name: " + tempEmployee.name + " Employee age: " + tempEmployee.id);
 			}
