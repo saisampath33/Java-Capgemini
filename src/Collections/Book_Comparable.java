@@ -13,7 +13,7 @@ public class Book_Comparable implements Comparable<Book_Comparable>{
 	}
 	@Override
 	public int compareTo(Book_Comparable o) {
-		return this.price - o.price; // sort by id
+		return this.price - o.price; // sort by id current obj with past object
 	}
 	
 	 public String toString() {
