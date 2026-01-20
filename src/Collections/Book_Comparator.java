@@ -24,7 +24,7 @@ public class Book_Comparator implements Comparator<Book_Comparable>{
         System.out.print("Sorted using Comparable (Ascending):  ");
         System.out.println(al);
 		
-		Collections.sort(al,new Book_Comparator()); //pasing another 
+		Collections.sort(al,new Book_Comparator()); //pasing another comparator name
 		System.out.print("Sorted using Comparator (Descending):  ");
 		System.out.println(al);
 	}
