@@ -1,0 +1,42 @@
+Linked List
+
+when we want to add or remove the data
+Insertion order is maintained
+We can add null values
+allows duplicate data
+Heterogenous type of data
+Indexing
+
+Uses doubly linked list
+
+Each node has:
+
+data
+
+previous pointer
+
+next pointer
+
+Operation		ArrayList	LinkedList
+
+Access (get(index))	✅ Fast (O(1))		❌ Slow (O(n))
+Insert at end		✅ Fast			✅ Fast
+Insert at beginning	❌ Slow (shifting)	✅ Fast
+Insert/Delete in middle	❌ Slow (shifting)	✅ Better if node reached
+Memory usage		✅ Less			❌ More (extra pointers)
+
+addFirst(E e)
+addLast(E e)
+
+getFirst()
+getLast()
+
+removeFirst()
+removeLast()
+
+
+LinkedList implements:
+
+List
+Deque
+Queue

@@ -103,5 +103,25 @@ c3 can call c2 and c1
 We should use this() call statement -> this() must be the first statement in the constructor and only this call statement in used in constructor
 
 Non static method
-with object we can use these methods
+with object creation we can use these methods
 
+Static Methods:
+we can access in same and different class
+In different class then Classname.Methodname();
+
+static variable
+created using static keyword
+if we have common info for every object then use static instead of passing the data in object every time
+
+Static Initializers->A static initializer is a block of code that executes once at class loading time to initialize static variables. executes initially
+Single Line -> static variable
+Multi Line-> static{multiple tasks}
+Get executes from top to bottom
+At the time of class loading it will executes
+Static block runs before main()
+
+Non static Initializer(Instance Variable) - execute at time of object creation
+Single Line 
+Multi Line
+top to buttom
+A non-static initializer is used to execute common initialization logic for every object before the constructor runs.

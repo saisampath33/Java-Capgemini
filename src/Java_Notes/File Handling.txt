@@ -7,22 +7,89 @@ package is java.io
 filereader and bufferreader
 filewriter and bufferwriter
 
-Serialization in Java means:
-Store object in file
-Converting an object into a byte stream
+FileReader is a class used to read character data from a file.
 
-so that it can be:
-saved into a file
-sent over a network
-stored in a database
-transferred between JVMs
+Reads one character at a time
+Used for text files
+Slower if file is large (because char-by-char reading)
 
-Seriazable is a marker interface(No methods it is empty)
+FileReader fr = new FileReader("sample.txt");
+int ch;
+while((ch = fr.read()) != -1){
+    System.out.print((char)ch);
+}
+fr.close();
 
-✅ Serialization:
+fr.read() returns:
+an int representing ASCII/Unicode character
+-1 means end of file (EOF)
 
-Object → Byte Stream (Save/Transfer)
+BufferedReader reads text from a file efficiently by storing data in a buffer.
 
-✅ Deserialization:
+Faster than FileReader
+Can read line by line
+Best for big files
 
-Byte Stream → Object (Get back original object)
+BufferedReader br = new BufferedReader(new FileReader("sample.txt"));
+String line;
+while((line = br.readLine()) != null){
+    System.out.println(line);
+}
+br.close();
+
+readLine() returns:
+one full line
+null means end of file
+
+FileWriter is used to write text data into a file.
+
+Writes character data
+Can overwrite / append
+
+✅ Syntax (Overwrite mode)
+FileWriter fw = new FileWriter("sample.txt");
+
+✅ Overwrites file content.
+
+
+
+✅ Syntax
+FileReader fr = new FileReader("sample.txt");
+FileWriter fw = new FileWriter("file.txt", append);
+true means APPEND
+new FileWriter("error.txt", true);
+
+
+📌 Meaning:
+✅ Add new text at the end of the file
+✅ Do NOT delete old data
+
+false means OVERWRITE
+new FileWriter("error.txt", false);
+
+
+📌 Meaning:
+❌ Clears file first
+✅ Writes fresh new data
+
+new FileWriter(filePath, false).close();
+Meaning:
+✅ Open file in overwrite mode (clears it)
+✅ Close immediately
+✅ file becomes EMPTY
+
+
+What is BufferedWriter?
+
+BufferedWriter improves performance by writing text using a buffer.
+
+Faster writing than FileWriter
+Best for large content writing
+Supports newLine() method
+
+BufferedWriter bw = new BufferedWriter(new FileWriter("sample.txt"));
+bw.write("Hello");
+bw.newLine();
+bw.write("World");
+bw.close();
+  

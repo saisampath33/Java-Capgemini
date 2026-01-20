@@ -1,0 +1,11 @@
+Generics
+
+We can make a collection the generic type like it stores the same data type of INTEGER(Homogenous)
+
+Generics = type safety
+They allow you to specify which type of object a collection/class/method should work with.
+
+👉 Instead of storing any type of data, generics restrict it to one specific type.
+
+Generics work only with Wrapper classes (not primitives)
+ArrayList<Integer> list = new ArrayList<>();

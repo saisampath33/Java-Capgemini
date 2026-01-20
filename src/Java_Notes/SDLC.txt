@@ -1,0 +1,13 @@
+SDLC
+
+1 -> Requirement Analysis SRS
+2 -> Design
+3 -> Development
+4 -> Testing
+5 -> Deployment
+6 -> Maintenance
+
+Waterfall
+
+Requirement analysis is fixed.
+

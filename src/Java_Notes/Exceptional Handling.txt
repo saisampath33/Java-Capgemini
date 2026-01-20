@@ -1,0 +1,97 @@
+Exceptional Handling
+
+Abnormal situation/Unexpected Problem which disturbs the execution of code.
+
+Synchronous programming - Execution of next line is completely depend on next line.
+
+Throwable Is supermost lass in exception class hierarchy
+		
+			    Throwable
+Exception-Can be Handled				Error-Difficult to Handle
+IOException						StackOverFlow Error
+ClassNotFoundException					OutOfMemoryError
+SQLException
+RunTimeException:
+	ArithmeticException
+	NullPointerException
+	NumberFormatException
+	ClassCastException
+	InputMismatchException
+	IndexOutOfBoundException
+		ArrayIndexOutOfBoundEcxeption
+		StringIndexOutOfBoundException
+
+All these Contains in java.lang package
+
+
+Throwable
+
+Important methods:
+getMessage()
+printStackTrace()
+toString()
+
+Two Types
+1) Checked - Direct Child of Exception are checked - Checked by compiler
+2) Unchecked - Direct Child of RunTimeException are unchecked - Compiler don't know
+
+ArithmeticException
+we will get this when Division by zero
+
+NullPointerException
+String s = null;
+sopln(s.toUpperCase());
+when we try to perform a operation in null values then this exception will come
+
+NumberFormatException
+If we convert alphanumeric string into a number then this exception
+int a = Integer.parseInt("123abc"); ❌
+int b = Integer.parseInt("123");✔️
+
+StringIndexOutOfBoundException
+Accessing the index which we don't have at all
+String s = "Hello"
+sop(s.charAt(7));
+
+InputMismatchException
+Wrong input type while using Scanner.
+
+IllegalArgumentException
+Passing illegal/invalid argument.
+
+IllegalStateException
+
+Method called at wrong time/state.
+Example: using iterator incorrectly.
+
+ConcurrentModificationException
+Modifying collection while iterating.
+
+
+To avoid all these exceptions:
+
+Exceptional Handling takes place
+1 try - Inside this we should write abnormal statement
+2 catch - catch the exception thrown by try block(we can write catch block only with the try block)
+3 finally
+4 throw
+5 throws
+
+printstacktrace method will give the detail information of exception without disturbing the flow
+
+finally - used to write the costly resources
+This has to be executed even exception occurs or not
+
+throw - manually throwing exception which is used custom exception which was userdefined.
+throws - Declare the exception and Used in method signature Tells caller: “this method may throw exception” and documentation purpose (telling that this method may throw exception)
+✅ throws is compulsory for checked exceptions
+❌ throws is not compulsory for runtime (unchecked) exceptions like ArithmeticException
+throws in main() means:
+"If exception occurs, JVM will handle it."
+
+Exception Propagation - One method throws exception to other and other throw to another 
+
+
+
+Note: If we extend Exception class then we should declare throws and exception name in method
+If we extend runtimeException class then no need this throws declartion
