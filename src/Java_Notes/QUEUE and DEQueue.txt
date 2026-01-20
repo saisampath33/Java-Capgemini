@@ -1,0 +1,101 @@
+QUEUE and DEQueue
+
+FIFO
+
+add() -> offer()
+
+Two child classes 
+Dequeue and Priority Queue
+
+Data structure used is Binary Heap
+
+
+Priority Queue
+
+Insertion order is not maintained
+No null values are added
+Not Heterogeneous
+Parent should be less than child node
+PriorityQueue internally uses a heap, so the head element is always the highest priority.
+
+add(E e)
+🔥 Behavior:
+
+Inserts element into queue
+
+If insertion fails (queue full / capacity restriction)
+✅ it throws Exception
+
+📌 Exception thrown:
+
+IllegalStateExceptionc	
+
+
+offer(E e)
+🔥 Behavior:
+
+Inserts element into queue
+Microsoft.QuickAction.WiFi
+If insertion fails (queue full)
+✅ it does not throw exception
+✅ it returns false
+
+Returns and removes head element
+Returns null if empty
+pq.poll();
+
+boolean isEmpty()
+
+Checks if queue is empty
+
+ArrayBlockingQueue is a fixed-size (bounded) queue
+
+It is present in:
+
+java.util.concurrent
+
+It uses array internally, so you must give capacity (size) at the time of creation.
+
+ArrayBlockingQueue<Integer> q = new ArrayBlockingQueue<>(4);
+✅ Meaning:
+
+Queue can store maximum 4 elements only
+When it becomes full → it won’t accept more elements
+
+		Dequeue(Interface)
+ArrayDequeue				LinkedList
+
+we can perform the operation from both ends
+Deque = Queue with TWO doors 🚪🚪
+You can add/remove from FRONT and REAR.
+
+ArrayDeque:
+
+offerFirst(E e)
+
+Adds at front
+
+✅ Returns false if fails (safe)
+
+dq.offerFirst(5);
+
+🔹 offerLast(E e)
+
+Adds at rear
+
+✅ Safe version
+
+dq.offerLast(25);
+
+pollFirst()
+pollLast()
+peekFirst()
+peekLast()
+
+✔ Double-ended (front + rear)
+✔ Allows duplicate elements
+❌ Null NOT allowed (ArrayDeque)
+✔ Faster than Stack & LinkedList
+✔ Can act as Queue + Stack
+❌ Not thread-saf
+✔ No indexing

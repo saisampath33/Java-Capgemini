@@ -1,0 +1,235 @@
+SET in Java
+Set is an interface present in java.util.
+
+It is a child interface of Collection.
+
+Main goal: Store unique elements (no duplicates).
+
+✅ Implementing Classes of Set
+1) HashSet
+
+Uses Hash Table / HashMap internally
+
+Fastest among sets for most operations.
+
+2) LinkedHashSet
+
+Same as HashSet but maintains Insertion order
+
+Uses Hash table + doubly linked list internally.
+
+3) TreeSet
+Stores elements in sorted order
+
+Uses Balanced BST (Red-Black Tree) internally.
+
+✅ Key Characteristics of Set
+No Duplicate Values
+Set never stores duplicates.
+If duplicate is added → it returns false.
+
+
+Example:
+HashSet<Integer> s = new HashSet<>();
+s.add(10); // true
+s.add(10); // false
+
+📌 How it checks duplicates?
+
+Uses: hashCode() + equals()
+
+✅ 2. Null Handling
+✅ HashSet
+
+Allows only one null
+Additional null → duplicate → not added
+
+✅ LinkedHashSet
+
+Allows one null
+❌ TreeSet
+❌ Does not allow null (Java 7+)
+
+Because sorting needs comparison → null cannot be compared.
+
+✅ 3. Insertion Order
+HashSet: ❌ Not maintained
+LinkedHashSet: ✅ Maintained
+TreeSet: ❌ Maintained? No (it sorts, not insertion-based)
+
+✅ 4. Indexing
+
+❌ No indexing concept in Set
+So:
+set.get(0) // ❌ not possible
+
+✅ 5. Performance
+
+HashSet/LinkedHashSet operations are O(1) average:
+add
+remove
+contains
+
+TreeSet operations are O(log n)
+
+✅ HashSet Internal Working (Deep Explanation)
+✅ Important Point:
+HashSet internally uses HashMap
+HashSet set = new HashSet();
+
+Behind the scene:
+HashMap map = new HashMap();
+
+Whenever you add element in HashSet:
+set.add(x);
+
+Internally it becomes:
+map.put(x, PRESENT);
+
+Where PRESENT is a dummy constant object.
+
+✅ Internal Data Structure
+HashSet uses:
+✅ Array of Buckets (Nodes)
+Each bucket stores:
+
+key
+hash
+next (for chaining)
+
+Example of node:
+Node {
+   int hash;
+   Object key;
+   Node next;
+}
+
+✅ Capacity + Load Factor
+✅ Initial Capacity:
+16 buckets
+
+✅ Load factor:
+0.75
+
+📌 Meaning:
+When size exceeds:
+16 * 0.75 = 12
+
+Then HashSet triggers Rehashing / Resizing
+✅ new capacity = old * 2
+➡️ 16 → 32 → 64 → ...
+
+✅ Your Example (but more correct)
+Suppose:
+capacity = 16
+Add 16
+hash(16) % 16 = 0
+Stored in bucket[0]
+
+Add 18
+hash(18) % 16 = 2
+Stored in bucket[2]
+
+Add 32
+hash(32) % 16 = 0
+Goes to bucket[0]
+Collision occurs
+
+✅ Now it checks duplicates:
+When you do:
+hs.add(obj);
+Internally it becomes:
+map.put(obj, PRESENT);
+
+Now HashMap does:
+
+Calls obj.hashCode() → to find bucket index
+
+Calls obj.equals(existingObj) → to check duplicate
+Compare hash
+If hash matches → call equals()
+
+
+If equals() returns false:
+➡️ Store as next node in same bucket (LinkedList style)
+
+✅ Collision Handling
+✅ What is Collision?
+Two different values generate same bucket index.
+✅ How HashSet solves collision?
+👉 By Chaining
+
+
+bucket stores a linked list of nodes
+
+
+Example bucket[0]:
+16 → 32 → 48
+
+
+✅ equals() + hashCode() role
+hashCode()
+Finds the bucket index
+equals()
+Checks whether element already exists in bucket
+
+
+✅ Rule:
+If two objects are equal using equals()
+➡️ Their hashCode must be same.
+
+✅ What happens if you don’t override hashCode + equals?
+If you store custom objects:
+class Student {
+   int id;
+   String name;
+}
+
+Without overriding:
+
+
+duplicate objects may still be stored
+because HashSet thinks they are different references.
+
+
+So we must override:
+✅ hashCode()
+✅ equals()
+
+✅ TreeSet Internal Working (Extra points)
+
+Uses Red-Black Tree
+
+Stores elements in Sorted Order
+
+Sorting happens by:
+Natural ordering (Comparable)
+Custom ordering (Comparator)
+
+
+Example:
+TreeSet<Integer> ts = new TreeSet<>();
+ts.add(30);
+ts.add(10);
+ts.add(20);
+System.out.println(ts); // [10, 20, 30]
+
+
+✅ LinkedHashSet Internal Working
+It maintains insertion order by using:
+✅ Hash table + Doubly Linked List
+So it stores:
+
+
+Set is used when:
+✅ Uniqueness is important
+✅ fast search/remove needed
+
+
+Fastest: HashSet
+
+
+Ordered insertion: LinkedHashSet
+
+
+Sorted output: TreeSet

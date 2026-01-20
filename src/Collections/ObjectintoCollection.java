@@ -29,9 +29,6 @@ class Student{
 	Student(){
 		
 	}
-	public char[] contains(Student s1) {
-		return null;
-	}
 	Student(String name,int id){
 		this.name = name;
 		this.id = id;

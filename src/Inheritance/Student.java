@@ -5,7 +5,7 @@ public class Student extends Person {
 	Student(){
 		
 	}
-	Student(String name,int id){
+	public Student(String name,int id){
 //		this.name = name;
 		super(name); //name passing to super class that is person class
 		this.id = id;
