@@ -30,7 +30,6 @@ class Student{
 		
 	}
 	public char[] contains(Student s1) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 	Student(String name,int id){
