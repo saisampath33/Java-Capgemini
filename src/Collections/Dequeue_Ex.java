@@ -19,8 +19,7 @@ public class Dequeue_Ex {
 		for(Object o:dq) {
 			System.out.println(o);
 		}
-		
-		
+	
 		
 	}
 
