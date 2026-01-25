@@ -49,6 +49,25 @@ public class stream {
 				.collect(Collectors.toList());
 		System.out.println(uppercase);
 		
+		// reduce: Concatenate all names into a single string
+		String concatenatedNames = names.stream().reduce(
+	            "",(partialString, element) -> partialString + " " + element
+	    );
+	    System.out.println("\nreduce (concatenated names):");
+	    System.out.println(concatenatedNames.trim());
+	    
+	    boolean allStartWithS = names.stream().allMatch(
+	            name -> name.startsWith("V")
+	        );
+	    System.out.println("\nallMatch (all start with 'S'):");
+	    System.out.println(allStartWithS);
+	    
+	    boolean anyStartWithS = names.stream().anyMatch(
+	            name -> name.startsWith("S")
+	        );
+	    System.out.println("\nanyMatch (any start with 'S'):");
+	    System.out.println(anyStartWithS);
+		
 	}
 
 }
