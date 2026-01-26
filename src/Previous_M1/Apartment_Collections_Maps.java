@@ -8,7 +8,7 @@ public class Apartment_Collections_Maps {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter the number of details to be added");
 		int n = sc.nextInt();
-		sc.nextLine();
+		sc.nextLine(); //consumes new line
 		Apartment apt = new Apartment();
 		System.out.println("Enter the details (aptnumber:rent)");
 		for(int i=0;i<n;i++) {
@@ -22,7 +22,11 @@ public class Apartment_Collections_Maps {
 		double min = sc.nextDouble();
 		double max = sc.nextDouble();
 		double result = apt.findTotalRentOfApartmentsInGivenRange(min,max);
-		System.out.println("Total Rent in the range "+min+" and "+max+" is "+result);
+		if(result!=0) {
+			System.out.println("Total Rent in the range "+min+" and "+max+" is "+result);
+		}else {
+			System.out.println("No apartments found in this range");
+		}
 		
 	}
 }
@@ -41,9 +45,7 @@ class Apartment{
 				res+=entry.getValue();
 			}
 		}
-		if(res!=0) {
-			return res;
-		}
-		return 0;
+		
+		return res;
 	}
 }
