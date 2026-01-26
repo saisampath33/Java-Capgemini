@@ -8,7 +8,7 @@ public class CakeOrder_Collection_Maps {
 		CakeOrder co = new CakeOrder();
 		System.out.println("Enter the number of cakes to be added: ");
 		int n = sc.nextInt();
-		sc.nextLine();
+		sc.nextLine();//consume new line
 		System.out.println("Enter the cake order details  (Order Id:CakeCost)");
 		for(int i=0;i<n;i++) {
 			String inp = sc.nextLine();
