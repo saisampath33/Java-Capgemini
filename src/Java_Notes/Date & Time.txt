@@ -1,0 +1,137 @@
+Date & Time
+
+LocalDate today = LocalDate.now();
+System.out.println(today);
+LocalDate dob = LocalDate.of(2002, 5, 10);
+System.out.println(dob);
+LocalTime now = LocalTime.now();
+System.out.println(now);
+LocalDateTime dt = LocalDateTime.now();
+
+Present in specific java.time.* package;
+Old API (before Java 8) – Date, Calendar
+Modern API (Java 8+) – java.time 
+
+| Class               | Purpose                  |
+| ------------------- | ------------------------ |
+| `LocalDate`         | Date only                |
+| `LocalTime`         | Time only                |
+| `LocalDateTime`     | Date + Time              |
+| `ZonedDateTime`     | Date + Time + Zone       |
+| `Period`            | Difference between dates |
+| `Duration`          | Difference between times |
+| `DateTimeFormatter` | Formatting/parsing       |
+
+1️⃣ Old Date & Time API (Legacy)
+➤ java.util.Date
+
+Represents a specific moment in time (milliseconds since Jan 1, 1970).
+
+Date d = new Date();
+System.out.println(d);
+
+Problems:
+Most methods are deprecated
+Poor design
+Not thread-safe
+
+➤ Calendar
+Used to manipulate date fields (year, month, day, etc.)
+Calendar cal = Calendar.getInstance();
+System.out.println(cal.get(Calendar.YEAR));
+
+Problems:
+Complicated
+Months start from 0
+Hard to use
+
+👉 Because of these issues, Java 8 introduced a new API.
+
+2️⃣ Modern Date & Time API (Java 8+) — java.time
+
+This is clean, immutable, and thread-safe.
+
+Main classes:
+
+🕒 LocalDate – Date only
+
+Stores year, month, day.
+
+LocalDate today = LocalDate.now();
+System.out.println(today);
+
+
+Example:
+
+2026-01-26
+
+
+Create specific date:
+
+LocalDate dob = LocalDate.of(2002, 5, 10);
+
+⏰ LocalTime – Time only
+
+Stores hour, minute, second.
+
+LocalTime now = LocalTime.now();
+
+📆 LocalDateTime – Date + Time
+
+Combination of both.
+
+LocalDateTime dt = LocalDateTime.now();
+
+🌍 ZonedDateTime – Date + Time + Time Zone
+ZonedDateTime zt = ZonedDateTime.now();
+
+
+Useful for global applications.
+
+⏳ Duration vs Period
+
+Used to calculate differences.
+
+➤ Period (dates)
+Period p = Period.between(d1, d2);
+
+
+Measures in years, months, days.
+
+➤ Duration (time)
+Duration d = Duration.between(t1, t2);
+
+
+Measures in hours, minutes, seconds.
+
+🧾 Formatting Date & Time
+
+Using DateTimeFormatter:
+
+LocalDate date = LocalDate.now();
+
+DateTimeFormatter f =
+    DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
+System.out.println(date.format(f));
+
+
+Output:
+
+26/01/2026
+
+🔄 Parsing String to Date
+String s = "2026-01-26";
+LocalDate d = LocalDate.parse(s);
+
+✅ Advantages of java.time
+
+Immutable (cannot change once created)
+
+Thread-safe
+
+Easy to understand
+
+Clear separation of date/time
+
+Built-in formatting/parsing
