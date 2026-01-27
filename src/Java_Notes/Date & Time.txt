@@ -135,3 +135,41 @@ Easy to understand
 Clear separation of date/time
 
 Built-in formatting/parsing
+
+
+If the input is Date
+
+Using SimpleDateFormat
+Scanner sc = new Scanner(System.in);
+
+System.out.println("Enter date (dd-MM-yyyy):");
+String dateStr = sc.nextLine();
+
+SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+Date date = sdf.parse(dateStr);
+
+
+User enters String
+SimpleDateFormat parses it
+Converts into a Date object
+
+
+If the input is LocalDate(Java 8+)
+
+Scanner sc = new Scanner(System.in);
+
+System.out.println("Enter date (yyyy-MM-dd):");
+String dateStr = sc.nextLine();
+
+LocalDate date = LocalDate.parse(dateStr);
+
+OR with custom format:
+
+DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+LocalDate date = LocalDate.parse(dateStr, dtf);
+
+LocalDate is immutable
+
+Thread-safe
+
+No time part (perfect for comparisons)	

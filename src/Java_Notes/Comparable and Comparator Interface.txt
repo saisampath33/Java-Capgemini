@@ -18,5 +18,56 @@ java.util package
 
 sort() calls:
 
-compare() → if you use Comparator 
-compareTo() → if you use Comparable
+compare() → if you use Comparator  -> Integer.compare(a, b);, Double.compare(a, b); -> input and output both are primitive no conversion needed
+compareTo() → if you use Comparable -> Only we can use with wrapper classes we cannot do it with primitive
+
+Collections.sort() -> Collections only
+Arrays.sort() -> Normal static array
+
+| Feature                    | `compareTo()`                                  | `compare()`                             |
+| -------------------------- | ---------------------------------------------- | --------------------------------------- |
+| Belongs to                 | `Comparable` interface                         | `Comparator` interface                  |
+| Purpose                    | Defines **natural ordering** of a class        | Defines **custom / multiple orderings** |
+| Implemented in             | The class itself (e.g., `Student`, `Employee`) | Separate class (or lambda)              |
+| Method signature           | `int compareTo(T o)`                           | `int compare(T o1, T o2)`               |
+| Number of objects compared | Compares **this** with one object              | Compares **two external objects**       |
+| How many sorting rules     | Only ONE                                       | Can have MANY                           |
+| Used when                  | Class has a single default sort logic          | You need flexible sorting               |
+| Example                    | Sort Employee by ID                            | Sort Book by price / title              |
+| Sorting call               | `Collections.sort(list)`                       | `Collections.sort(list, comparator)`    |
+| Primitive support          | Needs wrapper (`Integer`, `Double`)            | Usually uses `Integer.compare()` etc    |
+| Modifies class?            | YES                                            | NO                                      |
+| Real-world analogy         | Default behavior                               | External strategy                       |
+
+
+Using Comparable → compareTo()
+
+Inside class:
+
+class Student implements Comparable<Student> {
+    public int compareTo(Student s) {
+        return this.marks - s.marks;
+    }
+}
+
+Sorting:
+
+Collections.sort(list);
+
+👉 Only ONE rule possible.
+🔹 Using Comparator → compare()
+
+Separate class:
+
+class PriceComparator implements Comparator<Book> {
+    public int compare(Book b1, Book b2) {
+        return Double.compare(b1.getPrice(), b2.getPrice());
+    }
+}
+
+Sorting:
+
+Collections.sort(list, new PriceComparator());
+
+👉 Multiple rules allowed.
+
