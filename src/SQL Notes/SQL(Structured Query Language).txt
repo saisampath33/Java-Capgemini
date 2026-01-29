@@ -1,5 +1,140 @@
 SQL(Structured Query Language)
-
+Sequel -> SQL
 It is a language used to communicate/interact with databases for
 1 -> Store the data
 2 -> Fetching(Take Back) the data
+Data -> Collection of information -> Raw fact
+
+The 	colour	 	of a 	marker    is 	black
+	properties/features	object		data->raw fact
+
+object -> real time world existence(It should be definable and describable).
+Data is raw fact(original) which describes the attributes(properties) of the entity(Object).
+
+Entity
+It is a object either living thing or non living thing
+Anything which has physical existence in a real world is known as entity
+
+Database - Place, Medium, Container
+To store the data's in a systematic and organized manner.
+In database we can perform several operations(tasks) 
+Create/Insert
+Read/Retrieve
+Update/Modify
+Delete/Drop
+
+CRUD operations
+
+DBMS - Data Base Management System
+
+It is a software which is used to maintain and manage the database.
+It consists of two important features
+Security
+Authorization
+In DBMS we can store the data's in the form of files/folders
+We are using query language to communicate with dbms
+
+Based on the data stored in DBMS, It has 4 classifications
+
+HDBMS - Hierarchical		   -> 	DL/I(Data language/Interface)
+NDBMS - Network(Node Connectivity) ->   CODASYL DML
+OODMS - object oriented 	   -> 	OQL(Object Query Language)
+RDMS -  Relational		   -> 	SQL
+Except RDBMS others are very complex
+We want exact schema which is pre definable for RDBMS
+NoSQL(MongoDB) - No need of schema
+
+Relational Model
+Designed by Eggert Franklin codd
+
+To store data in rows and columns (Tabular Data)
+DBMS + Rules of EF codd(Relational Model) = RDBMS
+
+RDBMS is a type of DBMS software which is used to maintain the manages the database
+We are SQL to communicate with RDBMS
+
+Table is a logical organization of rows and cols
+Rows -> Records, Tuples
+Cols -> Attributes
+Cells -> Smallest unit or a block in a table which is used to store the data or intersection of rows and cols
+
+Meta data
+Details about the data
+This meta data's are stored in a table called meta table which are auto-generated
+Metadata is "data about data," providing descriptive information that helps organize, find, use, and manage other data, like an author and creation date for a document, or size and resolution for an image, giving context to raw information and making systems more efficient
+
+
+EF Codd Rules
+Data Entering into a cell must be a single valued data(atomic data). If it is multi valued we face data loses
+In RDBMS, we can store everything in form of tables including meta data
+In RDBMS, we can store data's in multiple tables if it is needed by making a connection between the tables with the help of key attributes(Common Cols)
+In RDBMS, we can validate the data by two steps 
+	By assigning datatypes to a column
+	By assigning constraints to a column 
+    Data types are mandatory constraints are optional
+
+Data Types
+
+It describes the type of data should be storing into a particular column or a memory location
+Char
+Varchar
+Date
+Number
+Large object
+Character Large object
+Binary Large object
+
+CHAR:
+A-Z, a-z, 0-9, Special character, Alpha numeric
+Characters are enclosed within single qoutations ' '
+syntax - char(size);
+The maximum size is 2000characters 
+It follows fixed length of memory allocation
+Note: In char datatype un-used memory are wastage of memories
+
+Varchar:
+A-Z, a-z, 0-9, Special character, Alpha numeric
+Characters are enclosed within single qoutations ' '
+syntax - varchar(size);
+It can accept upto 2000 characters
+It follows variable length of memory allocation
+Note: In varchar unused memories are return back to the main memory
+
+Varchar2:
+It is a updated version of varchar
+syntax - varchar2(size);
+It follows variable length of memory allocation
+It can accept upto 4000 characters
+
+DATE:
+
+Oracle format DD-MM-YYYY
+
+Number:
+
+Accept two arguments
+Precision is mandatory scale is optional
+Syntax Number(precision,[scale])
+[]-> operand
+
+
+Difference between dbms vs rdbms
+char and varchar2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
