@@ -6,7 +6,7 @@ It is a language used to communicate/interact with databases for
 Data -> Collection of information -> Raw fact
 
 The 	colour	 	of a 	marker    is 	black
-	properties/features	object		data->raw fact
+ 	properties/features	object		data->raw fact
 
 object -> real time world existence(It should be definable and describable).
 Data is raw fact(original) which describes the attributes(properties) of the entity(Object).
@@ -17,7 +17,7 @@ Anything which has physical existence in a real world is known as entity
 
 Database - Place, Medium, Container
 To store the data's in a systematic and organized manner.
-In database we can perform several operations(tasks) 
+In database we can perform several operations(tasks)
 Create/Insert
 Read/Retrieve
 Update/Modify
@@ -68,10 +68,12 @@ EF Codd Rules
 Data Entering into a cell must be a single valued data(atomic data). If it is multi valued we face data loses
 In RDBMS, we can store everything in form of tables including meta data
 In RDBMS, we can store data's in multiple tables if it is needed by making a connection between the tables with the help of key attributes(Common Cols)
-In RDBMS, we can validate the data by two steps 
-	By assigning datatypes to a column
-	By assigning constraints to a column 
-    Data types are mandatory constraints are optional
+In RDBMS, we can validate the data by two steps
+ 	By assigning datatypes to a column
+ 	By assigning constraints to a column
+    Data types are mandatory constraints are optional
+
+no space in table name we can use _ in it
 
 Data Types
 
@@ -88,7 +90,7 @@ CHAR:
 A-Z, a-z, 0-9, Special character, Alpha numeric
 Characters are enclosed within single qoutations ' '
 syntax - char(size);
-The maximum size is 2000characters 
+The maximum size is 2000characters
 It follows fixed length of memory allocation
 Note: In char datatype un-used memory are wastage of memories
 
@@ -107,34 +109,215 @@ It follows variable length of memory allocation
 It can accept upto 4000 characters
 
 DATE:
+stores/accepts only date
 
 Oracle format DD-MM-YYYY
 
 Number:
 
+Store numerical values
 Accept two arguments
+
+precision (p) → total number of digits allowed
+scale (s) → number of digits after the decimal point
+
 Precision is mandatory scale is optional
+
+scale>=precison
+if(scale<=precision) then precison job will taken by scale
+
 Syntax Number(precision,[scale])
 []-> operand
 
+Precision - It is used to allocate number of digits required for storing a integer values The range of precision is 1 to 38
+Scale - It is used to store decimal values within the given precision. The range of scale is -84 to 127 default value is 0
 
-Difference between dbms vs rdbms
-char and varchar2
+Ex:
+salary NUMBER(5,2) -> Total digits allowed = 5, Decimal digits allowed = 2
+Valid:
+123.45
+999.99
+12.3
+1.23
+
+age NUMBER(3,0)
+Valid:
+1
+99
+999
+
+NUMBER(3,5) precision<scale -> NUMBER(3,5) is invalid in Oracle because scale cannot be greater than precision.
+.00999
+
+What does negative scale mean?
+
+When scale is negative:
+Oracle rounds the number to the left of the decimal point.
+
+scale = -n  →  rounding happens to 10ⁿ
+
+NUMBER(5,-3)
+col NUMBER(5,-3)
+
+Precision = 5 (total digits)
+Scale = -3 → rounding to thousands (1000) if -2 then rounding in 100s
+
+Valid values & stored result
+
+Inserted value	Stored value
+12345		12000
+99999		100000
+4567		5000
+1000		1000
+Rounded to nearest 1000
 
 
+Large Objects
+
+Character Large Objects
+
+It is used to store huge amount of characters upto 4GB of size
+syntax - CLOB
+
+Binary Large Objects
+
+It is used to store the binary values of photo, video, audio etc upto 4GB
+Syntax - BLOB
+
+Constraints
+
+These are the rules or conditions which are assigned to a column for a validation
+
+Types
+
+Unique - It is a constraint which cannot accept duplicate or repeated values.
+
+Not Null - It is a constraint which cannot accept NULL values (Null - empty cell and it cannot occupies any memory space & 0 cannot be a null & if we perform any arthimetic task against the null it returns null ex 100 + null = null)
+
+Check - It gives extra validation with the help of conditions. If condition get satisfied the data get enters into a column or else it rejects the data
+ 	Ex: Check(Length(PhoneNumber) = 10)
+ 	Check(column name operator value/data)
+
+Primary Key
+
+It is used to identify the unique records from the table
+
+Characteristics of primary key
+
+We have only one primary key in a table
+It cannot accepts duplicate or repeated values
+It cannot accept NULL values
+It is a combination of both unique and not null constraints.
+It is not mandatory but it is highly recommended to use in table
 
 
+Foreign Key
+
+It is used to make connection between the tables
+
+Characteristics of foreign key
+
+We have n number of foreign keys in a table
+It can accept duplicate or repeated values
+It can accept NULL values
+It is not a combination of both unique and not null constraints.
+To become a foreign key it must be primary key in its own table
+foreign key present in a child table but it actually belongs to parent table
+It also known as referential integrity constraints
+
+SQL CRUD
+
+DDL (Data Definition language)     -> (Create,Rename,Alter,Truncate,Drop)
+DML (Data Manipulation language)   -> (Insert,Update,Delete)
+TCL (Transaction Control Language) -> (Commit->Rollback,Savepoint->Rollbackto)
+DCL (Data Control language)        -> (Grant,Revoke)
+DQL (Data Query language)          -> (SELECT,Projection,Selection,Joins)
+
+DQL
+Retrieve or Fetching the data's from the table
+Statements of DQL -> (SELECT,Projection,Selection,Joins)
+
+SELECT
+It is used to retrieving the data from the table and display it
+
+Projection
+It is used to retrieving the data from the table by selecting only the cols
+if the columns are get selected by default the values present in a column also get selected
+
+Selection
+It is used to retrieving the data from table by selecting both rows & cols
+Syntax: Select */DISTINCT column name /Expression [Alias] from table_name where <filter condition>;
+
+Joins
+Used to retrieving the data from multiple table simultaneously
+
+Distinct: It is used to fetch the unique data which means it ignores the duplicate values while displaying the data
+Incase of multiple columns with distinct it checks weather all the columns are same or not
+Unique: It will not allow the data while entering the data into the table only means while creating.
 
 
+Expression:
+
+Any statement which gives result is called Expression
+2. It is the combination of operators and operands
+
+Operands: it can be either column names or value
+
+Operators: Predefined symbols used to perform specific task
+
+Alias
+
+Alias is the alternative name given to a column name or expression present in the result table
+
+Order of execution
+
+from
+where --> row by row
+select
+
+Where clause
+It is used to filter the records from the table with help of conditions
+In where clause we can use filter condition as a argument
+<colm name/expression operator value/data> ---> filter condition
+Where clause executes after the from clause
+It executes row by row
+In where clause we can write multiple conditions with the help of logical operators (AND,OR, NOT)
+It return Boolean values
 
 
+Operators:
+It is a predefined symbols used to perform a specific task
+
+Arithmetic Operator(+, -, /, *)
+Concatenation Operator
+Comparison Operator (=, != or <>)
+Relational Operator (<, >, <=, >=)
+Logical Operator: (AND, OR, NOT)
+Special Operator: (IN, NOT IN, BETWEEN,NOT BETWEEN,IS,IS NOT,LIKE,NOT LIKE)
+Subquery Operators: (ALL,ANY,EXISTS,NOT EXISTS)
+
+Concatenation Operator
+It is used to join or merge given strings
+Symbol - ||
 
 
+Logical Operators
 
+It is used to write more than one conditions in a where clause
+And - Binary multiplication operator it return true if all given conditions are correct
+OR - Binary addition operator
 
+IN - similar to equals operator
 
+It is a multi valued operator
+Can accept multiple values in a RHS which belongs to the same column
+It return true if atleast any one of a condition gets satisfied
+Used instead of writing multiple OR's
 
+column name/expression IN (v1,v2.v3,...........vn)
 
-	
+NOT IN
+It is a similar to IN operator instead of selecting the values it rejects the multiple values
+column name/expression NOT IN (v1,v2.v3,...........vn)
 
-
+BETWEEN IN
