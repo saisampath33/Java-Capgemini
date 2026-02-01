@@ -1,5 +1,6 @@
 SQL(Structured Query Language)
 Sequel -> SQL
+
 It is a language used to communicate/interact with databases for
 1 -> Store the data
 2 -> Fetching(Take Back) the data
@@ -320,4 +321,157 @@ NOT IN
 It is a similar to IN operator instead of selecting the values it rejects the multiple values
 column name/expression NOT IN (v1,v2.v3,...........vn)
 
-BETWEEN IN
+BETWEEN
+
+When there is range of values in between operators
+Include the given ranges
+we cannot interchange the ranges in between operator
+
+Not BETWEEN
+It is similar to between operator but it will reject the range of values
+
+column_name/expression NOT BETWEEN lower_range AND higher_range
+
+IS OPERATOR
+used to compare with only the null values
+
+columnname/expression IS NULL;
+
+
+IS NOT
+
+It is used to compare with not null values
+columnname/expression IS NOT NULL;
+
+
+Functions:
+
+Functions are list of codes or block of instructions which are used to perform  specific task
+
+Single Row Function
+
+Single row funtion execuets row by row
+
+In single if we pass 1 input its generate 1 output
+
+If we pass n no:of inputs its generate n no:of outputs
+
+Multi Row Funtion(MRF)
+
+Mulit row function aggertaes all the records executes and generates an single output
+
+In mulit row function if we pass one input it's genrates one output
+
+If we pass n no:of inputs its generate exactly only one output
+
+List of MRF():
+
+max()
+min()
+sum()
+avg()
+count()
+__________________________________________________________________________________________________________________________________________________________________________________________
+
+GroupBy:
+
+It is used to group the records
+
+Syntax:
+
+select group_by_expression/group_function
+from table
+[Where <filter_condition>]
+group by col_name/expression
+
+
+Order of Execution :
+
+From
+Where(if used) [row-by-row]
+Group by       [row-by-row]
+select         [group-by-group]
+
+In Group by class we can use column or expression as a arugement
+
+For a group by class where class is optional
+
+Group by class executes row by row
+
+After the execution of group by we are getting only the groups
+i.e any class which executes after the group it executes row by row
+
+Group Functions:
+
+group functions are nothing but a multi row funtions
+
+GROUP-BY-EXPRESSION
+
+the column name used in group by  and same col we can access in select clause or along with mrf is known as group by expression
+
+___________________________________________________________________________________________________________________________________________________________________________________________
+
+
+Having Clause :-
+
+Having clause is used to filter the group
+
+Syntax:
+
+select group_by_expression/group_function
+from table
+[Where <filter_condition>]
+group by col_name/expression
+Having <group_filter_condition>
+
+
+Order of Execution :
+
+From
+Where(if used) [row-by-row]
+Group by       [row-by-row]
+Having         [group-by-group]
+select         [group-by-group]
+
+The group filter conditions should be in the form of mulit row function()
+
+Without group by clause we can't use having caluse
+
+Having clause after the group by so it executes group by group
+
+___________________________________________________________________________________________________________________________________________________________________________
+
+Ordered By:
+
+order by clause is used to range the records either in Ascending or or Desecending order in a result table
+
+By deafult ordered by caluse shrts the records in ASC order
+
+Order by clause executes at the last
+
+it executes row by row
+
+Order by clause executes after select clause
+
+
+SYNTAX:
+------
+
+SELECT group_by_expression/gropu_function
+
+from table_name
+WHERE <filter_condition>
+GROUP BY [col_name/expression]
+Having <group_filter/condition]
+Order by col_name/expression [asc]/[desc]
+
+
+ORDER OF EXECUTION
+-----------------
+
+From
+where
+group
+having
+select
+order by
