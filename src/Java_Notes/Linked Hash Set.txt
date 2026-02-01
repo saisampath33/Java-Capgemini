@@ -1,0 +1,25 @@
+Linked Hash Set
+
+LinkedHashSet maintains insertion order but does not support indexing like List
+Data Structure used
+Hash Table and Doubly Linked List
+
+In bucket
+key
+value
+Adjacent Bucket
+Previous node
+Next Node
+
+
+TreeSet
+
+We cannot add null value -> NullPointerException
+If two elements cannot be compared → ClassCastException
+
+Data Structure: Self balance binary tree(Red Black Tree)
+Prints like LEFT PARENT RIGHT
+
+We cant add heterogeneous type of data
+Sorting order
+

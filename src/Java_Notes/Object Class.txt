@@ -61,3 +61,18 @@ Before object is deleted, we may want to:
 ✔ Close DB connection
 ✔ Release memory
 That logic can be written in finalize().
+
+
+clone() method 
+clone() method creates and returns a new object that is a copy of the current object.
+Cloning = making an exact copy of an object
+
+Cloneable
+It gives the permission to clone the object
+It is a marker interface
+It has NO methods
+Just a signal to JVM
+If we dont implement cloneable -> CloneNotSupportedException
+Step 1: Implement Cloneable
+Step 2: Override clone()
+Step 3: Call super.clone()

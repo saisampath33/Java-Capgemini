@@ -1,0 +1,75 @@
+Wrapper classes
+
+Wrap the primitive data type into objects
+
+We can use collections by object form only
+To store the data in collection we have to store in object
+all wrapper classes are inbuilt classes which is developed by wrapper classes
+byte -> BYTE
+short -> Short
+int -> Integer
+long -> Long
+float -> Float
+double -> Double
+char -> Character
+boolean -> Boolean
+
+1) int a =10; //constructor method 
+Integer I = new Integer(a);
+
+
+2) valueOf() -> static method
+Integer I = Integer.valueOf(a) -> convert into Integer form which is object -> explicit conversion
+
+
+Boxing -> The process of converting primitive data into the non primitive type
+Autoboxing -> Automatically compiler will do boxing
+Unboxing -> Non primitive to primitive
+Autounboxing -> Automatically compiler will do unboxing
+
+
+intValue() -> unboxing in explicit way 
+Double d = 2.5;
+double x = d.doubleValue();
+
+In collections compiler will do autoboxing
+
+ArrayList<Integer> list = new ArrayList<>();
+list.add(5);   // int → Integer automatically
+
+Default value of wrapper class is null
+
+For -128 to 127, Java reuses objects. After that it will not
+
+Parsing
+String to Number
+
+int a = Integer.parseInt("123");
+
+
+All wrapper classes extend:
+
+✅ java.lang.Object
+
+Object -> Non number directly extend Object
+  ├── Character
+  └── Boolean
+
+Object
+  └── Number
+        ├── Byte
+        ├── Short
+        ├── Integer
+        ├── Long
+        ├── Float
+        └── Double
+
+
+From Object
+
+All numeric wrapper classes also have common Object methods:
+
+toString()
+equals(Object obj)-> wrapper classes should compare values, not memory locations.
+hashCode()
+getClass()

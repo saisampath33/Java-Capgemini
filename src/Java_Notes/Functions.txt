@@ -1,0 +1,142 @@
+Functions
+
+Like Operator : 
+
+It is used to match the pattern. 
+Syntax : Column name/Epression LIKE ‘pattern’
+
+For matching patterns using like operator two special characters will be used.
+1. % 
+2. _
+
+% :
+
+A single percentile can accept n number of characters any characters but sometimes no characters.
+
+_ :
+
+A single underscore can accept only one character. 
+
+Wildcard	Meaning	Example
+%	Any number of characters	'A%'
+_	Exactly one character	'A_'
+
+WAQ to display employee name if the name end with char S. 
+
+WAQ to display employee name if employee name starts with J and ends with S. 
+
+WAQ to display employee name if the employee name has character A. 
+
+Was to display if employees are higher date > 81. 
+
+WAQ to display name and hire date if they are hired in December. 
+
+WAQ to display if employees name has exactly 4 char
+
+WAQ to display employee name name and job if the employee job has character A as a 2nd char  
+
+Not Like :
+
+It is similar to like operator but it will reject the pattern. 
+
+WAQ to display name and salary of employees except who are earning 4 digit salary. 
+
+Functions :
+
+Functions are block of instructions which are used to perform a specific task. 
+
+Functions 
+1. Built in Function
+1. Single Row Functions
+2. Multi Row Functions
+        1. Group Functions 
+        2. Aggregate Functions
+2. User Defined Function
+
+Single row functions 
+Executes row by row. In single row function if we pass one input then it generates one output. If we pass n number of inputs it generates n number of outputs. 
+
+Multi Row Functions
+Multi row functions aggregates all the records executes and generates a single output. In multi row function if we pass one input it generates one output. If we pass n number of inputs it generates exactly only one output. 
+
+List of multi row functions:
+1.max()
+2.min()
+3.sum()
+4.avg()
+5.count()
+
+WAQ to display max salary of employees who are working in dpetno 10 or 30 manager or salesman and comm==NULL
+
+WAQ to display total salary and no of employees who are hired on 1981 and earning salary in the range of 1000 to 3000. 
+
+WAQ to display total salary and average salary of an employee if the employee name has character A as a second and 4th character.
+
+Group BY :
+	Used to group the records 
+Syntax : where condition group by column_name/ expression. 
+
+Order of Execution :
+1. From
+2. Where (If Used) [Row by row]
+3. Group By [row by row]
+4. Select [Group by Group]
+
+In group by class we can use caller name or expression as an argument. For a group by class where class is optional. 
+Group by class executes row by row. After the execution we will get only the groups. Therefore, Any class which executes after the group by class it executes group by group. 
+
+Group Functions : 
+Group functions are multi row functions 
+
+Group by Expressions :
+The column name used in a group by clause the same column we can access in select or along with a multi row functions is known as group by expression. It should be used with aggregate functions else with group by. 
+
+WAQ to display number of employees who are working as a manger in each department 
+
+WAQ to display average salary given to the employees in a job wise
+
+WAQ to display number of times the salary which are repeated in employee table. 
+
+Having :
+
+Used to filter the groups and aggregate functions can be used only with this. 
+
+** Without group by having cannot be used. 
+
+Having class executes after group by so it executes group by group. 
+
+Syntax :
+Where -> Group -> Having
+
+Order of Execution :
+
+1. From
+2. Where (If USED) [Row by Row]
+3. Group BY [Row by Row]
+4. Having [Group by Group]
+5. Select [Group by Group]
+
+WAQ to display number of employees if at least 2 employees are working in each department are salesman or analyst
+
+WAQ to display employees and max salary given to employees in each job exactly 3 employees are working as a manager. 
+
+WAQ to display salaries which are repeated in an employee table 
+
+WAQ job which are not repeated in employee table. 
+
+Order BY : 
+
+Order by clause is used to arrange records either in ascending order or in descending order in the result table. 
+BY default order by clause sorts in ascending order. 
+Order by executes at the last. 
+It executes row by row 
+Order bye executes after select clause. 
+
+Order of Execution :
+
+1. From
+2. Where (If Used) [Row by Row]
+3. Group BY [Row BY Row]
+4. Having [Group BY Group]
+5. Select [Group By Group]
+6. Order By [Row by Row]

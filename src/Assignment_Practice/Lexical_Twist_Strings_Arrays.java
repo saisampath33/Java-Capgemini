@@ -5,6 +5,7 @@ import java.util.LinkedHashSet;
 public class Lexical_Twist_Strings_Arrays {
 	
 	public static String lexicaltwist(String firstWord,String secondWord) {
+		
 		StringBuilder firstreverse = new StringBuilder(firstWord).reverse();
 		if(firstreverse.toString().equalsIgnoreCase(secondWord)) {
 			String res = firstreverse.toString().toLowerCase();

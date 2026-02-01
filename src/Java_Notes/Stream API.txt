@@ -1,0 +1,84 @@
+Stream API
+
+From java 8 we have started Functional Programming to reduce LOC
+
+Stream is flow of the data
+
+Stream API is used to process collections of objects. A stream in Java is a sequence of objects that supports various methods that can be pipelined to produce the desired result.
+
+Streams do not modify the original data; they only produce results using their methods.
+Intermediate operations (like filter, map, etc.) are lazy and return another Stream, so you can chain them together.
+A terminal operation (like collect, forEach, count) ends the stream and gives the final result.
+
+There are two types of Operations in Streams:
+
+Intermediate Operations
+
+Methods are chained together.
+Intermediate operations transform a stream into another stream.
+It enables the concept of filtering where one method filters data and passes it to another method after processing.
+These are workers standing on the belt.
+
+They:
+look at each toy
+maybe change it
+maybe throw it away
+then pass it to the next worker
+BUT ⚠️
+👉 They do NOT start the belt
+map,filter,sorted,peek,flatmap,distinct
+
+flatMap(List::stream): Flattens the nested lists into a single stream of strings.
+filter(s -> s.startsWith("S")): Filters the strings to only include those that start with "S".
+map(String::toUpperCase): Converts each string in the stream to uppercase.
+distinct(): Removes any duplicate strings.
+sorted(): Sorts the resulting strings alphabetically.
+peek(...): Adds each processed element to the intermediateResults set for intermediate inspection.
+collect(Collectors.toList()): Collects the final processed strings into a list called result.
+
+Terminal Operations
+
+Terminal Operations are the type of Operations that return the result. These Operations are not processed further just return a final result value.
+They start the belt
+collect,forEach,reduce,count,findFirst,allMatch,anymatch
+
+
+forEach: Prints each name in the list.
+collect: Filters names starting with 'S' and collects them into a new list.
+reduce: Concatenates all names into a single string.
+count: Counts the total number of names.
+findFirst: Finds and prints the first name in the list.
+allMatch: Checks if all names start with 'S'.
+anyMatch: Checks if any name starts with 'S
+
+
+flatMap(List::stream)
+
+Flattens multiple lists into one stream
+
+Converts:
+Stream<List<String>>
+
+into:
+Stream<String>
+
+distinct()
+Removes duplicate values
+Uses equals() internally
+
+sorted()
+
+Sorts elements in natural order (A → Z)
+
+peek(s -> intermediateResults.add(s)) -> Watcher
+
+Observes elements as they flow through
+Often used for debugging or logging
+Does not change the stream
+
+collect(Collectors.toList())
+
+Terminal operation
+Converts the stream into a List<String>
+
+The reduce method is used to reduce the elements of a stream to a single value. The reduce method takes a BinaryOperator as a parameter

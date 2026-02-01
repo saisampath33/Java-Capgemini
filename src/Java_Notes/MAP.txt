@@ -1,0 +1,51 @@
+MAP
+
+DS - HashTable
+
+ 		MAP
+HashMap			TreeMap
+   LinkedHashMap
+
+Have both key and value
+
+❌ No insertion order
+❌ One null key allowed
+✔ Multiple null values allowed
+
+
+Internal Data Structure
+
+Array of Buckets
+Each bucket → LinkedList / Red-Black Tree
+
+Index Calculation
+index = hash & (n - 1);
+
+If array size = 16:
+
+234567 % 16 = 7
+
+Value goes to bucket index 7
+
+Collision Handling
+
+If bucket already has data:
+
+Java uses LinkedList
+
+After Java 8 → if chain length > 8 → Red-Black Tree
+
+TreeMap
+
+Sorted order
+Uses:
+Comparable
+OR Comparator
+
+Data Structure Red-Black Tree (Self-Balancing BST)
+
+put() → O(log n)
+get() → O(log n)
+
+❌ No null key
+✔ Values can be null

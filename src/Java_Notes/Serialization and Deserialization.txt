@@ -1,0 +1,69 @@
+Serialization and Deserialization
+
+Serialization
+It means converting an object into a byte stream (binary format) so that it can be:
+
+stored into a file
+
+sent over a network
+
+saved in a database etc.
+
+📌In Java, serialization is used when we want to store an object permanently.
+
+Student s1 = new Student(1,"Smith",76);
+Serialization converts this object into bytes and stores it in a file like sample.dat.
+
+Deserialization 
+It is the reverse of serialization.
+
+It means:
+➡️ Converting the byte stream back into the original object
+
+So when we read the file again, we get back:
+
+Student object with same id, name, marks.
+
+✅ Object → Byte stream → File (Serialization)
+✅ File → Byte stream → Object (Deserialization)
+
+Serializable
+
+This is a marker interface (means it has no methods).
+If you don’t implement it → you get:
+NotSerializableException
+
+Writing objects into file:
+✅ ObjectOutputStream
+
+Reading objects from file:
+✅ ObjectInputStream
+
+Writing Object
+
+ObjectOutputStream oos =
+        new ObjectOutputStream(new FileOutputStream("sample.dat"));
+
+oos.writeObject(objectName);
+oos.close();
+
+
+Reading Object
+ObjectInputStream ois =
+        new ObjectInputStream(new FileInputStream("sample.dat"));
+
+Student s = (Student) ois.readObject(); -> Because readObject() returns Object, but we want it as Student.
+ois.close();
+
+
+
+
+readObject() reads one object at a time
+
+When no object is left → Java throws EOFException
+
+.dat
+.ser
+.bin
+
+These extensions indicate data/binary file, but they are not compulsory.

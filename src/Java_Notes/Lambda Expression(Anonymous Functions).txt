@@ -1,0 +1,41 @@
+Lambda Expression(Anonymous Functions)
+
+Java 8 features
+
+Enable passing code as data (method arguments).
+Allow defining behavior without creating separate classes.
+
+To reduce the lines of code
+Functional interface - Comparable and Comparator and Consumer(Interface) void accept(T t)->Performs an action on the given argument without returning a result. forEach(Consumer)->forEach accepts a functional interface
+
+Lambda expressions implement a functional interface (An interface with only one abstract function) and “Lambda expressions are not compatible with abstract classes”
+
+No need to create a class to give implementation of the method in functional interface
+
+interface A{
+	void test();
+}
+
+interface B{
+	int add(int a,int b);
+}
+
+class Main{
+	A a = ()->{
+	   sopln("hello");
+	}
+	a.test();
+
+	B b = (x,y)->{
+		return x+y;
+	}
+	b.add(10,20); //Return the answer
+}
+//Directly in main app we gave implementation of the method
+
+
+An anonymous class is:
+
+A class without a name, created only once, for one-time use.
+
+You create it on the spot when you don’t want to write a full class.

@@ -1,0 +1,22 @@
+Regular Expression
+
+Reduce LOC
+Pattern matching
+
+These not work for decimal numbers
+\\d -> only for one digit
+\\d+ -> one or more digits
+\\d* -> zero or more(even in empty string it gives true)
+
+Start -> ^
+End -> $
+They matter whenever the regex engine is allowed to search inside a string:
+That means
+Pattern + Matcher
+find()
+lookingAt()
+
+
+String.matches() in Java is implicitly anchored
+
+\\d+\\.\\d => for decimal like 10.5 before point it is two digits for .(\\.) and for one digit (\\d) -> Java already forces full-string match(No need of using anchors)

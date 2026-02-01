@@ -96,7 +96,60 @@ List interface only has methods which return ListIterator
 
 Collection interface
 1 remove(Object)-> Remove element by value
-2 remove(index) -> remove(int index) exists in List interface, not in Collection.
+*2 remove(index) -> remove(int index) exists in List interface, not in Collection.
 3 removeAll(Collection c) -> Removes all elements from current collection that are present in the given collection c. list1.removeAll(list2);
 4 retainAll(Collection c) -> Keeps only those elements which are common in both collections.
 5 clear() -> Removes everything from the collection.
+
+
+sort(Collection c) - > static method
+Collections.sort(collectionname) -> To call a static method we should use classname.methodname -> In collection interface -> Old method
+al.sort(null); -> In List interface default method-> Java 8+
+
+
+
+Vector is old class
+First methods are introduced here 
+It having a child class that is Stack
+which have addElement
+
+Vector
+
+Synchronized (thread-safe)
+Only one thread can access it at a time
+
+ArrayList
+
+Not synchronized (not thread-safe)
+Faster in single-thread programs
+
+Vector
+
+When full, capacity increases by 100% (doubles) by default
+(or by capacityIncrement if specified)
+
+ArrayList
+
+When full, capacity increases by about 50%
+(newCapacity = old + old/2)
+
+
+Stack - LIFO
+top of the stack is head element
+push(E item)
+Adds an element to the top of stack
+
+pop()
+Removes and returns the top element
+
+peek()
+Returns the top element without removing it
+
+empty()
+Returns true if stack is empty, else false
+
+search(Object o)
+Returns position from top (1-based)
+Returns -1 if not found
+
+All other methods like add(), remove(), size(), get() etc. come from Vector, not originally Stack. This all meethods work like normal list not stack

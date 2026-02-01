@@ -144,7 +144,6 @@ map.put(obj, PRESENT);
 Now HashMap does:
 
 Calls obj.hashCode() → to find bucket index
-
 Calls obj.equals(existingObj) → to check duplicate
 Compare hash
 If hash matches → call equals()
@@ -228,8 +227,6 @@ Set is used when:
 
 Fastest: HashSet
 
-
 Ordered insertion: LinkedHashSet
-
 
 Sorted output: TreeSet

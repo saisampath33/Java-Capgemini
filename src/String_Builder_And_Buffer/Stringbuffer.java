@@ -1,4 +1,4 @@
-package String_Buffer;
+package String_Builder_And_Buffer;
 
 public class Stringbuffer {
 
