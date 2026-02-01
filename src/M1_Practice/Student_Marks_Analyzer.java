@@ -77,8 +77,8 @@ class StudentUtility{
 		return stream1.max(Comparator.comparingInt(Student::getMarks))
 				.orElse(null);
 	}
-	public List<Student> sortByMarks(Stream<Student> stream) {
-        return stream.sorted(Comparator.comparingInt(Student::getMarks))
+	public List<Student> sortByMarks(Stream<Student> stream1) {
+        return stream1.sorted(Comparator.comparingInt(Student::getMarks))
                      .collect(Collectors.toList());
     }
 }
