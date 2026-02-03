@@ -1,0 +1,154 @@
+Sub Queries
+
+A query written inside another query is known as subquery
+1 Outer Query -> It executes second
+2 Inner Query -> It executes first
+
+Working Flow
+
+In subquery inner query executes first
+Ihe output of a inner query is taken as a input to the outer query
+With the help of this input outer query will executes  
+i.e outer query is completely dependent on inner query
+
+When and Why subqueries?
+
+Case 1
+
+When there is a unknown condition(indirect condition) present in a queries we go for sub queries.
+
+Known Condition
+
+write a query to display name,sal of employees who are earning sal as 3000
+select name.sal from emp where sal = 3000;
+sal = 3000 -> known condition
+
+Unknown Condition
+
+WAQTD name,sal of employees who are earning sal greater than scott
+
+sal greater than scott -> unknown condition
+
+select ename,sal from emp where sal>(select sal from emp where ename = 'SCOTT');
+
+Inner query o/p is 3000
+
+select * from emp where HIREDATE < (SELECT HIREDATE FROM EMP WHERE ENAME='ADAMS');
+
+SELECT * FROM EMP WHERE HIREDATE > (SELECT HIREDATE FROM EMP WHERE ENAME = 'JAMES') AND DEPTNO = (SELECT DEPTNO FROM EMP WHERE ENAME = 'SCOTT');
+
+CASE 2
+
+Data to be selected and condition to be executed are present in a different tables we use subqueries
+
+SELECT ENAME FROM EMP WHERE DEPTNO = (SELECT DEPTNO FROM DEPT WHERE DNAME = 'ACCOUNTING');
+
+SELECT * FROM DEPT WHERE DEPTNO IN (SELECT DEPTNO FROM EMP WHERE HIREDATE BETWEEN '01-JAN-82' AND '31-DEC-82');
+
+SELECT COUNT(ENAME) AS COUNT FROM EMP WHERE DEPTNO = (SELECT DEPTNO FROM DEPT WHERE LOC LIKE 'NEW YORK');
+
+ SELECT * FROM EMP WHERE SAL > (SELECT SAL FROM EMP WHERE ENAME='SMITH') AND SAL < (SELECT SAL FROM EMP WHERE ENAME='KING') AND DEPTNO = (SELECT DEPTNO FROM DEPT WHERE DNAME='SALES');
+
+
+Types of subqueries
+
+Single Row
+Multi Row
+
+Single Row SQ
+If subquery generates exactly one output is known as single row
+For Single row subquery we can use normal operators (=,!-,<,>,>=,<=) or special operators(IN,NOT IN) or subquery operators(all,any)
+
+
+Multi Row Subqueries:
+If the subquery returns more than one output is known as multi row subquery
+For Multi Row Subq we cannot use normal operators
+Here We can use special or subquery operator
+
+Note: 
+(Comparsion Operator) here we use special operators
+IN -> = (Equals)
+NOT IN -> !=
+When it comes to Relational operator(>,<,>=,<=) we can use subquery operators
+All -> max() -> STRICTLY GREATER OR LESS THAN
+Any -> min() -> ATLEAST
+ALL AND ANY ARE USED WITH RELATIONAL OPERATORS
+
+Ex SELECT ENAME FROM EMP WHERE SAL > ALL(SELECT SAL FROM EMP WHERE ENAME='JONES');
+
+EX select * FROM EMP WHERE SAL = (SELECT MAX(SAL) FROM EMP );
+We cannot use multi row functions in where clause
+
+NESTED SUBQUERY
+A subquery written inside another subquery
+We can nest upto 255 subqueries
+
+limit and offset will not work for oracle it works for MySQL
+
+select ROWID,ROWNUM,EMP.* FROM EMP;
+
+To find nth max number
+
+Limit and offset
+Dense_Rank()
+Co-Related Subquery
+Pseudo Query
+Nested Sub query
+
+2ND HIGHEST SALARY
+SELECT MAX(SAL) FROM EMP WHERE SAL < ALL(SELECT MAX(SAL) FROM EMP);
+
+3RD HIGHEST SALARY 
+ SELECT MAX(SAL) FROM EMP WHERE SAL < ALL(SELECT MAX(SAL) FROM EMP WHERE SAL < (SELECT MAX(SAL) FROM EMP));
+
+NAME FOR 2ND MAX
+SELECT ENAME FROM EMP WHERE SAL IN (SELECT MAX(SAL) FROM EMP WHERE SAL<(SELECT MAX(SAL) FROM EMP));
+
+department name for 3rd minimal salary
+SELECT DNAME FROM DEPT WHERE DEPTNO IN (SELECT DEPTNO FROM EMP WHERE SAL IN (SELECT MIN(SAL) FROM EMP WHERE SAL > (SELECT MIN(SAL) FROM EMP WHERE SAL > (SELECT MIN(SAL) FROM EMP))));
+
+Pseudo Columns
+
+False/Fake columns which cannot access implicitly.
+We can access pseudo cols only in form of explicitly
+
+SET PAGES 200 LINES 200;
+SELECT ROWID,ROWNUM ,EMP.* FROM EMP;
+
+ROWID AND ROWNUM ARE PSEUDO COLUMNS
+ROWID - 18 digit of memory address every rowid is unique . It cannot accept duplicate or repitations
+Generated during the time of insertion. we cannot do any modification to rowid because it is static
+
+We can display the details with rowID if there is no primary key in table
+Used to identify duplicate records from table
+EX  select * FROM EMP WHERE ROWID = 'AAACmXAAEAAAAASAAM';
+
+
+ROWNUM -> SERIAL NUMBER FOR OUTPUT/RESULT TABLE
+Generated during time of execution
+It is dynamic (Acc to query it will change which start from 1 and increment by 1)
+
+EX  SELECT * FROM EMP WHERE ROWNUM <= (SELECT COUNT(*)/2 FROM EMP); //FIRST 50% OF TABLE DETAILS
+
+EX FOR 3RD NUMBER select  * FROM (SELECT ROWNUM AS SLNO ,EMP.* FROM EMP) WHERE SLNO = 3;
+
+FOR LAST RECORD, select  * FROM (SELECT ROWNUM AS SLNO ,EMP.* FROM EMP) WHERE SLNO = (SELECT MAX(ROWNUM) FROM EMP); AND select  * FROM (SELECT ROWNUM AS SLNO ,EMP.* FROM EMP) WHERE SLNO = (SELECT COUNT(*)  FROM EMP);
+
+FOR LAST 50% select  * FROM (SELECT ROWNUM AS SLNO ,EMP.* FROM EMP) WHERE SLNO > (SELECT COUNT(*)/2  FROM EMP);
+
+3RD HIGHEST SALARY IN A TABLE
+select SAL  FROM (SELECT ROWNUM AS SLNO, SAL FROM (SELECT DISTINCT SAL FROM EMP ORDER BY SAL DESC) ) WHERE SLNO = 3;
+
+//NAME OF 3RD HIGHEST SAL
+SELECT ENAME FROM EMP WHERE SAL = (SELECT SAL FROM(SELECT ROWNUM AS SLNO , SAL FROM (SELECT DISTINCT SAL FROM EMP ORDER BY SAL DESC)) WHERE SLNO = 3);
+
+
+//DENSE RANK SAME VALUE SAME RANK NEXT VALUE CANNOT BE SKIPPABLE
+SELECT SAL FROM (SELECT DENSE_RANK() OVER(ORDER BY SAL DESC) AS RANK ,SAL FROM EMP) WHERE RANK = 4;
+
+//RANK SAME VALUE SAME RANK NEXT VALUE BE SKIPPABLE
+
+
+LAG()->Gives Previous value AND LEAD()->Gives next value
+
+REG_REPLACE()
