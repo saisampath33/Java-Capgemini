@@ -41,6 +41,7 @@ HDBMS - Hierarchical		   -> 	DL/I(Data language/Interface)
 NDBMS - Network(Node Connectivity) ->   CODASYL DML
 OODMS - object oriented 	   -> 	OQL(Object Query Language)
 RDMS -  Relational		   -> 	SQL
+
 Except RDBMS others are very complex
 We want exact schema which is pre definable for RDBMS
 NoSQL(MongoDB) - No need of schema
@@ -89,7 +90,7 @@ Binary Large object
 
 CHAR:
 A-Z, a-z, 0-9, Special character, Alpha numeric
-Characters are enclosed within single qoutations ' '
+Characters are enclosed within single quotations ' '
 syntax - char(size);
 The maximum size is 2000characters
 It follows fixed length of memory allocation
@@ -260,7 +261,7 @@ Unique: It will not allow the data while entering the data into the table only m
 Expression:
 
 Any statement which gives result is called Expression
-2. It is the combination of operators and operands
+It is the combination of operators and operands
 
 Operands: it can be either column names or value
 
@@ -475,3 +476,8 @@ group
 having
 select
 order by
+
+
+
+
+

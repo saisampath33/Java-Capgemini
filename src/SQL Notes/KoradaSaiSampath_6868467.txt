@@ -1,0 +1,154 @@
+CREATE TABLE users (
+  2    user_id NUMBER PRIMARY KEY,
+  3    name VARCHAR2(50),
+  4    email VARCHAR2(100),
+  5    phone VARCHAR2(15),
+  6    city VARCHAR2(30)
+  7  );
+
+
+SQL> INSERT INTO users VALUES (1,'KRISHNA','KRISHNA@GMAIL.COM','9876543210','Chennai');
+
+1 row created.
+
+SQL> INSERT INTO users VALUES (2,'SAMPATH','SAMPATH@GMAIL.COM','8247757805','VIZAG');
+
+1 row created.
+
+SQL> INSERT INTO users VALUES (3,'LOKA','LOKA@GMAIL.COM','8247757806','VIZAG');
+
+1 row created.
+
+SQL> INSERT INTO users VALUES (4,'VISHNU','VISHNU@GMAIL.COM','8247757807','PULIVENDHULA');
+
+1 row created.
+
+SQL> INSERT INTO users VALUES (5,'VARUN','VARUN@GMAIL.COM','8247757807','PULIVENDHULA');
+
+1 row created.
+
+
+SQL> CREATE TABLE PRODUCTS(
+  2  PRODUCT_ID NUMBER PRIMARY KEY,
+  3  PRODUCT_NAME VARCHAR(25),
+  4  PRICE NUMBER(5,2),
+  5  STOCK NUMBER,
+  6  CATEGORY VARCHAR2(76));
+
+Table created.
+
+SQL> INSERT INTO products VALUES (105,'Mouse',800,60,'Accessories');
+
+1 row created.
+
+SQL> ALTER TABLE PRODUCTS MODIFY PRICE NUMBER(8,2);
+
+Table altered.
+
+SQL> INSERT INTO products VALUES (101,'Laptop',55000,10,'Electronics');
+
+1 row created.
+
+SQL> INSERT INTO products VALUES (102,'Mobile',25000,20,'Electronics');
+
+1 row created.
+
+SQL> INSERT INTO products VALUES (103,'Headphones',2000,50,'Accessories');
+
+1 row created.
+
+SQL> INSERT INTO products VALUES (104,'Keyboard',1500,40,'Accessories');
+
+1 row created.
+
+SQL> CREATE TABLE orders (
+  2    order_id NUMBER PRIMARY KEY,
+  3    user_id NUMBER,
+  4    product_id NUMBER,
+  5    quantity NUMBER,
+  6    total_amount NUMBER(10,2),
+  7    FOREIGN KEY (user_id) REFERENCES users(user_id),
+  8  FOREIGN KEY (product_id) REFERENCES products(product_id));
+
+Table created.
+
+
+SQL> INSERT INTO orders VALUES (1002,2,102,3,95000);
+
+1 row created.
+
+SQL> INSERT INTO orders VALUES (1003,2,102,3,95000);
+
+1 row created.
+
+SQL> INSERT INTO orders VALUES (1005,2,105,3,95000);
+
+1 row created.
+
+
+SQL> CREATE TABLE payment (
+  2    payment_id NUMBER PRIMARY KEY,
+  3    order_id NUMBER,
+  4    payment_date DATE,
+  5    payment_method VARCHAR2(20),
+  6    payment_status VARCHAR2(20),
+  7    CONSTRAINT fk_payment_order
+  8    FOREIGN KEY (order_id) REFERENCES orders(order_id)
+  9  );
+
+Table created.
+
+SQL> INSERT INTO payment VALUES (5001,1001,SYSDATE,'CARD','SUCCESS');
+
+1 row created.
+
+SQL> INSERT INTO payment VALUES (5002,1002,SYSDATE,'UPI','SUCCESS');
+
+1 row created.
+
+SQL> INSERT INTO payment VALUES (5003,1003,SYSDATE,'CASH','SUCCESS');
+
+1 row created.
+
+SQL> SELECT * FROM PAYMENT;
+
+PAYMENT_ID   ORDER_ID PAYMENT_D PAYMENT_METHOD       PAYMENT_STATUS
+---------- ---------- --------- -------------------- --------------------
+      5001       1001 05-FEB-26 CARD                 SUCCESS
+      5002       1002 05-FEB-26 UPI                  SUCCESS
+      5003       1003 05-FEB-26 CASH                 SUCCESS
+      5005       1005 05-FEB-26 UPI                  SUCCESS
+
+SQL> INSERT INTO payment VALUES (5004,1003,SYSDATE,'CARD','SUCCESS');
+
+1 row created.
+
+SQL> SELECT * FROM PAYMENT;
+
+PAYMENT_ID   ORDER_ID PAYMENT_D PAYMENT_METHOD       PAYMENT_STATUS
+---------- ---------- --------- -------------------- --------------------
+      5001       1001 05-FEB-26 CARD                 SUCCESS
+      5002       1002 05-FEB-26 UPI                  SUCCESS
+      5003       1003 05-FEB-26 CASH                 SUCCESS
+      5005       1005 05-FEB-26 UPI                  SUCCESS
+      5004       1003 05-FEB-26 CARD                 SUCCESS
+
+SQL> SELECT * FROM ORDERS;
+
+  ORDER_ID    USER_ID PRODUCT_ID   QUANTITY TOTAL_AMOUNT
+---------- ---------- ---------- ---------- ------------
+      1001          1        101          1        55000
+      1002          2        102          3        95000
+      1003          2        102          3        95000
+      1005          2        105          3        95000
+
+
+SQL> SELECT * FROM ORDERS INNER JOIN PAYMENT ON ORDERS.ORDER_ID = PAYMENT.ORDER_ID;
+
+ORDER_ID USER_ID PRODUCT_ID QUANTITY TOTAL_AMOUNT PAYMENT_ID ORDER_ID PAYMENT_DATE PAYMENT_ME PAYMENT_ST
+-------- ------- ---------- -------- ------------ ---------- -------- ------------ ---------- ----------
+    1001       1        101        1        55000       5001     1001 05-FEB-26    CARD       SUCCESS
+    1002       2        102        3        95000       5002     1002 05-FEB-26    UPI        SUCCESS
+    1003       2        102        3        95000       5003     1003 05-FEB-26    CASH       SUCCESS
+    1005       2        105        3        95000       5005     1005 05-FEB-26    UPI        SUCCESS
+    1003       2        102        3        95000       5004     1003 05-FEB-26    CARD       SUCCESS

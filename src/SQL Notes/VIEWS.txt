@@ -1,0 +1,14 @@
+VIEWS
+
+It is a virtual table.
+
+It cant occupies any memory in a database.
+
+if we make any changes on the view it affects the original table
+
+syntax
+
+create view viewname
+as
+select statement;
+
