@@ -1,0 +1,157 @@
+Triggers
+
+A trigger is a course of action to be taken when any DDL or DML Event Occurs.
+It is a named PL/SQL block like a procedure.
+But it is executed implicitly by oracle server.
+
+COMMIT / ROLLBACK NOT allowed in triggers
+
+Type
+
+DML Triggers(Table Level)
+DDL Triggers(Database Level)
+
+1) DML Triggers
+
+Syntax
+
+CREATE [OR REPLACE] TRIGGER TRIGGER_NAME 
+[BEFORE|AFTER]
+[INSERT[OR]UPDATE[OR] DELETE] ON TABLE_NAME
+[FOR each ROW]						-> if we mention this then it is a row level
+BEGIN
+DBMS_OUTPUT . PUT_LINE('STATEMENT TO PRINT');
+END
+
+EX:
+ CREATE OR REPLACE TRIGGER LPU
+  2  BEFORE
+  3  INSERT ON EMP
+  4  FOR EACH ROW
+  5  BEGIN
+  6  DBMS_OUTPUT . PUT_LINE('ITS INSERTED');
+  7  END;
+  8  /
+
+These triggers are executed automatically whenever user performs DML operation on the table.
+
+Levels of DML triggers
+
+1) Statement level (default) - executed only once for the statement.
+2) Row level - executed once for each row affected by DML.
+
+2) DDL Triggers
+
+CREATE [OR REPLACE] TRIGGER TRIGGER_NAME
+[BEFORE|AFTER]
+[create [OR] rename [OR] alter [OR] Truncate [OR] drop] ON TABLE_NAME. Schema					
+BEGIN
+DBMS_OUTPUT . PUT_LINE('STATEMENT TO PRINT');
+END;
+/
+
+EX: 
+WRITE THIS ---> SET SERVEROUTPUT ON
+AFTER THAT 
+
+ CREATE OR REPLACE TRIGGER FORDROP
+  2  BEFORE
+  3  DROP ON SAMPATH.SCHEMA
+  4  BEGIN
+  5  DBMS_OUTPUT. PUT_LINE('YOU DROPPED A TABLE');
+  6  END;
+  7  /
+
+PL/SQL stands for procedural language/sql
+It is a oracle extension of SQL that adds programming features like loops,conditions,variables 
+Note
+SQL is a not procedural so we cannot store intermediate results
+
+Block Structured
+Procedural	-> Allows use of variables, loops, conditions
+Error Handling -> Using exception
+Portability 	-> Runs on all oracle databases
+Integration
+
+
+DECLARE - OPTIONAL
+BEGIN - MANDATORY (EXECUTABLE BLOCK)
+EXCEPTION - OPTIONAL
+END;
+/
+
+DECLARE
+<DECLARE SECTION>
+BEGIN
+<EXECUTABLE SECTION>
+DML,TCL
+SELECT ....INTO CLAUSE
+IF,LOOPS
+EXCEPTIONAL[OPTIONAL]
+->EXCEPTIONAL HANDLING
+END;
+/  -----> EXECUTES the entire PL/SQL block that is already stored in memory
+
+if we not type / then :
+Oracle does NOT execute it yet.
+It only stores it in SQL*Plus buffer.
+
+/ tells -> “Execute the last PL/SQL block in memory”
+
+VARIABLE NAME DATATYPE(SIZE) := VALUE
+A NUMBER(5) := 10;
+
+Procedures:
+A procedure is a named PL/SQL block that must be explicitly called by the user or application.
+
+Key idea:
+You call a procedure manually.
+
+CREATE OR REPLACE PROCEDURE add_emp
+AS
+BEGIN
+  INSERT INTO EMP VALUES (102,'SAMPATH','SDE',NULL,SYSDATE,40000,NULL,20);
+END;
+/
+
+To execute
+EXEC add_emp;
+
+Function returns a value
+Procedure performs an action
+
+Functions:
+
+A function:
+
+Must return exactly one value
+Can be used inside SQL statements
+Mainly used for calculations
+
+CREATE OR REPLACE FUNCTION add_numbers(
+  a NUMBER,
+  b NUMBER
+)
+RETURN NUMBER
+AS
+BEGIN
+  RETURN a + b;
+END;
+/
+
+SELECT add_numbers(10,20) FROM dual;
+
+| Feature           | Procedure    | Function        |
+| ----------------- | ------------ | --------------- |
+| Return value      | ❌ No         | ✅ Mandatory  |
+| RETURN keyword    | ❌ Optional   | ✅ Mandatory  |
+| Used in SELECT    | ❌ No         | ✅ Yes        |
+| Main purpose      | Perform task  |  Compute value |
+| OUT parameters    | ✅ Yes        | ❌ Rare       |
+| DML operations    | ✅ Allowed    | ⚠️ Restricted |
+| COMMIT / ROLLBACK | ✅ Allowed    | ❌ Not allowed|
+| Called using      | EXEC         | SELECT / PL/SQL |
+
+Procedure: A stored PL/SQL program that performs an action.
+
+Function: A stored PL/SQL program that returns a value and can be used in SQL.
