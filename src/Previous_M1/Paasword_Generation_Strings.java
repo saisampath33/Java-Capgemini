@@ -24,7 +24,7 @@ public class Paasword_Generation_Strings {
 		String part1 = user.substring(6,user.length());
 		StringBuilder sb = new StringBuilder("TECH_");
 		sb.append(sum).append(part1);
-		System.out.println("Password: "+sb.toString());
+		System.out.println("Password:"+sb.toString());
+		
 	}
-
 }

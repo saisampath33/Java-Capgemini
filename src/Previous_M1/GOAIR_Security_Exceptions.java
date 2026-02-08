@@ -1,7 +1,7 @@
 package Previous_M1;
 import java.util.*;
 
-public class EntryUtility_Exceptions {
+public class GOAIR_Security_Exceptions {
 
     public static void main(String[] args) {
 

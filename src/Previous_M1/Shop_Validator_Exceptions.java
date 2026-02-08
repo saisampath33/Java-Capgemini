@@ -2,7 +2,7 @@ package Previous_M1;
 
 import java.util.Scanner;
 
-public class TechStore_Exceptions {
+public class Shop_Validator_Exceptions {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
