@@ -17,7 +17,7 @@ public class Word_Wand_Strings {
 				return;
 			}
 		}
-		System.out.println("Wod Count: "+len);
+		System.out.println("Word Count: "+len);
 		if(len%2==0) {
 			for(int i=len-1;i>=0;i--) {
 				ans1.append(parts[i]+" ");
