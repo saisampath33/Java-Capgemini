@@ -55,7 +55,7 @@ public class Sound_Sphere_Streams {
 			}
 		}
 		 
-		
+		sc.close();
 	}
 
 }
