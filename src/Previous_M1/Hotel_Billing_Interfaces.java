@@ -60,7 +60,7 @@ interface Room {
 	public default int calculateMembershipYears(int joiningYear) {
 		
 		int currentYear = LocalDate.now().getYear();
-		return (currentYear-joiningYear)-1;
+		return (currentYear-joiningYear);
 	}
 }
 

@@ -34,9 +34,12 @@ Types of indexes
 1 BTree
 2 Bmap
 
+CREATE INDEX index_name
+ON table_name(column_name);
+
 Without an index SQL does a full table scan which means it checks every row and very slow for large tables.
 
-if index are there SQL jumps directly to matching rows much faster search,sorting and filtering
+if index are there SQL jumps directly to matching rows much faster search, sorting and filtering
 
 SQL> SET AUTOTRACE ON EXPLAIN;
 SQL> SELECT * FROM EMP WHERE SAL = 3000; GIVES WHOLE EXECUTION PROCESS OF THE COMMAND
@@ -101,7 +104,7 @@ NORMALIZATION
 
 IT IS PROCESS OF CONVERTING A LARGE TABLE INTO SMALLER TABLE IN ORDER TO REMOVE REDUNDANCIES AND ANOMALIES BY IDENTIFYING THEIR FUNCTIONAL DEPENDENCIES IS KNOWN AS NORMALIZATION.
 
-(OR
+(OR)
 
 IT IS PROCESS OF DECOMPOSING A TABLE INTO NORMAL FROM IS KNOWN AS NORMALIZATION
 

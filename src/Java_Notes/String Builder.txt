@@ -1,0 +1,146 @@
+String Builder
+
+Object
+ └── AbstractStringBuilder
+      └── StringBuilder
+           └── implements CharSequence, Appendable, Serializable
+Package: java.lang
+
+| Constructor                       | Purpose                              |
+| --------------------------------- | ------------------------------------ |
+| `StringBuilder()`                 | Empty builder, default capacity = 16 |
+| `StringBuilder(int capacity)`     | Empty builder with custom capacity   |  if crosses the capacity limit then new capacity is newCapacity = (oldCapacity * 2) + 2 
+| `StringBuilder(String str)`       | Initialize with string               |
+| `StringBuilder(CharSequence seq)` | Initialize with sequence             |
+
+StringBuilder NEVER throws an error when capacity is exceeded
+Capacity is mentioned to avoid repeated memory allocation and copying when the final size of data is known in advance.
+
+StringBuilder grows automatically for safety, but specifying capacity improves performance and reduces memory overhead.
+
+Append overload methods
+
+| Method                           |
+| -------------------------------- |
+| `append(String)`                 |
+| `append(char)`                   |
+| `append(int)`                    |
+| `append(long)`                   |
+| `append(float)`                  |
+| `append(double)`                 |
+| `append(boolean)`                |
+| `append(Object)`                 |
+| `append(char[])`                 |
+| `append(char[], int, int)`       |
+| `append(CharSequence)`           |
+| `append(CharSequence, int, int)` |
+
+Insert Methods in given index
+
+| Method                                |
+| ------------------------------------- |
+| `insert(int, String)`                 |
+| `insert(int, char)`                   |
+| `insert(int, int)`                    |
+| `insert(int, long)`                   |
+| `insert(int, float)`                  |
+| `insert(int, double)`                 |
+| `insert(int, boolean)`                |
+| `insert(int, Object)`                 |
+| `insert(int, char[])`                 |
+| `insert(int, char[], int, int)`       |
+| `insert(int, CharSequence)`           |
+| `insert(int, CharSequence, int, int)` |
+
+delete and replace -> ALL of them return a StringBuilder object
+
+| Method                                    | Purpose         |
+| ----------------------------------------- | --------------- |
+| `delete(int start, int end)`              | Remove range    |
+| `deleteCharAt(int index)`                 | Remove one char |
+| `replace(int start, int end, String str)` | Replace part    | //replace() needs String
+
+Search Methods
+
+| Method                     |
+| -------------------------- |
+| `indexOf(String)`          |
+| `indexOf(String, int)`     |
+| `lastIndexOf(String)`      |
+| `lastIndexOf(String, int)` |
+
+
+indexOf(String, int)
+str – the substring you’re searching for
+fromIndex – the index to start searching from (0-based)
+returns – the index of the first occurrence of str at or after fromIndex, or -1 if not found
+
+SubString
+
+| Method                               |
+| ------------------------------------ |
+| `substring(int start)`               |
+| `substring(int start, int end)`      |
+| `CharSequence subSequence(int, int)` |
+
+Method for Reversing
+
+reverse()
+
+Comparing
+
+| Method                         |
+| ------------------------------ |
+| `int compareTo(StringBuilder)` |
+| `String toString()`            |
+
+Object class methods inherited
+
+| Method                        |
+| ----------------------------- |
+| `equals()` ❌ (not overridden) |
+| `hashCode()`                  |
+| `getClass()`                  |
+| `clone()`                     |
+| `wait()`                      |
+| `notify()`                    |
+| `notifyAll()`                 |
+
+setCharAt(indx,new character);
+
+setCharAt() accepts char only
+
+
+Replace works only for strings
+
+String rep = del.toString();
+rep = rep.replaceAll("[aeiou]", "@"); //replace all vowels with @
+System.out.println(rep);
+[] = character class
+“Match ANY ONE character from inside the brackets”
+
+
+Check DIGIT  0 to 9
+Character.isDigit(ch)
+
+Check Letter a to z
+Character.isLetter(ch)
+
+Both
+Character.isLetterOrDigit(ch)
+
+
+indexOf() is a String method used to find the position (index) of a character or word inside a String.
+✅ the index number (starting from 0) if found
+❌ -1 if not found
+
+indexOf(String, startPosition) 
+
+String s = "Hello World World";
+System.out.println(s.indexOf("World")); // 6
+int start = s.indexOf("World"); // 6
+int end = s.indexOf("World",start+5); //gives next world index which is 12
+
+String s = "banana";
+System.out.println(s.indexOf('a', 2)); // 3
+here 2 is start position 

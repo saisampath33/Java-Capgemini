@@ -71,7 +71,7 @@ truncate table table_name;
 
 DROP
 delete the table along with the structure of the table
-
+	
 we can able to recover the drop tables using flash back.
 
 The address after droping a table is bin address

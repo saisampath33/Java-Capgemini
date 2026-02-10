@@ -1,0 +1,6 @@
+Need to learn
+
+Transient
+Serializable
+Deseriazable
+Clonable

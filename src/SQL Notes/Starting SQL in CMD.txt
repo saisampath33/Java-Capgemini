@@ -1,145 +1,1 @@
-Starting SQL in CMD
-
-Okay Sai Sampath — calm 🙂
-This ORA-12560 right now simply means:
-
-👉 Your Oracle database service is NOT running.
-
-Yesterday we created DB manually.
-Today after reboot / fresh CMD, Windows did NOT auto-start Oracle.
-
-So SQLPlus cannot talk to the database.
-
-We’ll start it manually — 2 commands.
-
-✅ STEP 1 — Start Oracle Windows Service
-
-Open CMD as Administrator (important).
-
-Run:
-
-net start OracleServiceORCL
-
-
-You MUST see:
-
-The OracleServiceORCL service was started successfully.
-
-
-If it says already running → fine.
-
-✅ STEP 2 — Start Listener (optional but safe)
-net start OracleOraDb10g_home1TNSListener
-
-
-(If service name slightly different, ignore.)
-
-✅ STEP 3 — Set environment (again)
-
-Same CMD:
-
-set ORACLE_HOME=E:\oracle\product\10.2.0\db_2
-set ORACLE_SID=ORCL
-set PATH=%ORACLE_HOME%\bin;%PATH%
-
-✅ STEP 4 — Login
-
-Now:
-
-sqlplus sampath/sampath123
-
-🎯 Expected
-Connected.
-SQL>
-
-🧠 Why this happened
-
-Oracle 10g on Windows 11:
-
-❌ does NOT auto-start DB
-✔ must start OracleServiceORCL each boot
-
-Normal behavior.
-
-👉 Do STEP 1 now (net start OracleServiceORCL) and paste output.
-
-We’ll fix it immediately 👍
-
-Enter user-name: sampath
-Enter password:
-ERROR:
-ORA-01034: ORACLE not available
-ORA-27101: shared memory realm does not exist
-
-Got it — this is actually progress, Sai Sampath 👍
-This error is different from ORA-12560 and tells us exactly what’s wrong:
-
-🧠 What this means (simple)
-
-You now have:
-
-ORA-01034: ORACLE not available
-ORA-27101: shared memory realm does not exist
-
-
-Translation:
-
-👉 Oracle service is running
-👉 But database instance is NOT started
-
-So:
-
-Windows service ✔
-
-Listener maybe ✔
-
-Actual database ❌ (stopped)
-
-We just need to start the database instance.
-
-✅ Do this step-by-step
-
-Open CMD as Administrator.
-
-🔹 Step 1 — Set environment
-set ORACLE_HOME=E:\oracle\product\10.2.0\db_2
-set ORACLE_SID=ORCL
-set PATH=%ORACLE_HOME%\bin;%PATH%
-
-🔹 Step 2 — Login as SYSDBA (local)
-sqlplus / as sysdba
-
-
-You should get:
-
-Connected to an idle instance.
-
-
-(or Connected.)
-
-🔹 Step 3 — Start database
-
-Inside SQL:
-
-startup;
-
-Expected:
-ORACLE instance started.
-Database mounted.
-Database opened.
-
-✅ Step 4 — Exit and login as sampath
-exit
-
-
-Back in CMD:
-
-sqlplus sampath/sampath123
-
-🧠 Why this happens
-
-Oracle does NOT auto-start DB after reboot.
-You must run startup; once.
-
-
-set pages 100 lines 100;
+Starting SQL in CMDOkay Sai Sampath — calm 🙂This ORA-12560 right now simply means:👉 Your Oracle database service is NOT running.Yesterday we created DB manually.Today after reboot / fresh CMD, Windows did NOT auto-start Oracle.So SQLPlus cannot talk to the database.We’ll start it manually — 2 commands.✅ STEP 1 — Start Oracle Windows ServiceOpen CMD as Administrator (important).Run:net start OracleServiceORCLYou MUST see:The OracleServiceORCL service was started successfully.If it says already running → fine.✅ STEP 2 — Start Listener (optional but safe)net start OracleOraDb10g_home1TNSListener(If service name slightly different, ignore.)✅ STEP 3 — Set environment (again)Same CMD:set ORACLE_HOME=E:\oracle\product\10.2.0\db_2set ORACLE_SID=ORCLset PATH=%ORACLE_HOME%\bin;%PATH%✅ STEP 4 — LoginNow:sqlplus sampath/sampath123🎯 ExpectedConnected.SQL>🧠 Why this happenedOracle 10g on Windows 11:❌ does NOT auto-start DB✔ must start OracleServiceORCL each bootNormal behavior.👉 Do STEP 1 now (net start OracleServiceORCL) and paste output.We’ll fix it immediately 👍Enter user-name: sampathEnter password:ERROR:ORA-01034: ORACLE not availableORA-27101: shared memory realm does not existGot it — this is actually progress, Sai Sampath 👍This error is different from ORA-12560 and tells us exactly what’s wrong:🧠 What this means (simple)You now have:ORA-01034: ORACLE not availableORA-27101: shared memory realm does not existTranslation:👉 Oracle service is running👉 But database instance is NOT startedSo:Windows service ✔Listener maybe ✔Actual database ❌ (stopped)We just need to start the database instance.✅ Do this step-by-stepOpen CMD as Administrator.🔹 Step 1 — Set environmentset ORACLE_HOME=E:\oracle\product\10.2.0\db_2set ORACLE_SID=ORCLset PATH=%ORACLE_HOME%\bin;%PATH%🔹 Step 2 — Login as SYSDBA (local)sqlplus / as sysdbaYou should get:Connected to an idle instance.(or Connected.)🔹 Step 3 — Start databaseInside SQL:startup;Expected:ORACLE instance started.Database mounted.Database opened.✅ Step 4 — Exit and login as sampathexitBack in CMD:sqlplus sampath/sampath123🧠 Why this happensOracle does NOT auto-start DB after reboot.You must run startup; once.set pages 100 lines 100;|C:\Windows\System32>net start OracleServiceORCLThe OracleServiceORCL service is starting.The OracleServiceORCL service was started successfully.C:\Windows\System32>set ORACLE_HOME=E:\oracle\product\10.2.0\db_2C:\Windows\System32>set ORACLE_SID=ORCLC:\Windows\System32>set PATH=%ORACLE_HOME%\bin;%PATH%C:\Windows\System32>sqlplus / as sysdbaSQL*Plus: Release 10.2.0.1.0 - Production on Fri Feb 6 10:05:04 2026Copyright (c) 1982, 2005, Oracle.  All rights reserved.Connected to an idle instance.SQL> startup;ORACLE instance started.SQL> sqlplus sampath/sampath123SP2-0734: unknown command beginning "sqlplus sa..." - rest of line ignored.SQL> exitDisconnected from Oracle Database 10g Enterprise Edition Release 10.2.0.1.0 - ProductionWith the Partitioning, OLAP and Data Mining optionsC:\Windows\System32>sqlplus sampath/sampath123Connected to:Oracle Database 10g Enterprise Edition Release 10.2.0.1.0 - ProductionWith the Partitioning, OLAP and Data Mining options

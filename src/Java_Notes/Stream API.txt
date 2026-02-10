@@ -28,10 +28,14 @@ BUT ⚠️
 👉 They do NOT start the belt
 map,filter,sorted,peek,flatmap,distinct
 
-flatMap(List::stream): Flattens the nested lists into a single stream of strings.
-filter(s -> s.startsWith("S")): Filters the strings to only include those that start with "S".
-map(String::toUpperCase): Converts each string in the stream to uppercase.
+flatMap(List::stream): Flattens the nested lists into a single stream of strings. Convert multiple streams into one stream
+
+filter(s -> s.startsWith("S")): Filters the strings to only include those that start with "S". Returns a predicate true/false
+
+map(String::toUpperCase): Converts each string in the stream to uppercase. Transform element → element	
+ 
 distinct(): Removes any duplicate strings.
+
 sorted(): Sorts the resulting strings alphabetically.
 peek(...): Adds each processed element to the intermediateResults set for intermediate inspection.
 collect(Collectors.toList()): Collects the final processed strings into a list called result.
@@ -81,4 +85,29 @@ collect(Collectors.toList())
 Terminal operation
 Converts the stream into a List<String>
 
-The reduce method is used to reduce the elements of a stream to a single value. The reduce method takes a BinaryOperator as a parameter
+The reduce method is used to reduce the elements of a stream to a single value. The reduce method takes a BinaryOperator as a parameter.
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Collection → Stream → Operations → Result
+
+Stream PipeLine
+Source → Intermediate Operations → Terminal Operation
+
+| Task      | Best Method              |
+| --------- | ------------------------ |
+| Sum       | `mapToInt().sum()`       |
+| Average   | `mapToInt().average()`   |
+| Stats     | `summaryStatistics()`    |
+| Asc sort  | `sorted()`               |
+| Desc sort | `sorted(reverseOrder())` |
+| Objects   | `Comparator.comparing()` |
+
+
+
+
+
+
+
+

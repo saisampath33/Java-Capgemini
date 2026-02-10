@@ -3,9 +3,9 @@ JOINS
 1) Cartesian join/cross join
 2) Inner join/ Equi join
 3) Outer join
-	Left outer join
-	Right outer join
-	full outer join
+ 	Left outer join
+ 	Right outer join
+ 	full outer join
 4) Natural join
 5) Self join
 
@@ -49,19 +49,19 @@ ON EMP.DEPTNO = DEPT.DEPTNO;
 SELECT ENAME,DNAME FROM EMP E,DEPT D WHERE E.DEPTNO = D.DEPTNO; // THIS IS ORACLE
 SELECT ENAME,DNAME FROM EMP E INNER JOIN DEPT D ON E.DEPTNO = D.DEPTNO;  //THIS IS ANSI
 //WE CAN WRITE MULTIPLE CONDITION ON ON OR WHERE CLAUSE
-SELECT EMPNO,DNAME,LOC FROM EMP INNER JOIN DEPT ON EMP.DEPTNO = DEPT.DEPTNO AND DEPT.DEPTNO=30; 
+SELECT EMPNO,DNAME,LOC FROM EMP INNER JOIN DEPT ON EMP.DEPTNO = DEPT.DEPTNO AND DEPT.DEPTNO=30;
 
 IF WE WANT TO DISPLAY ANY COMMON COULUMN IN BOTH TABLES IN JOIN THEN WE SHOULD WRITE TABLENAME.COLUMN NAME ON ON OR WHERE CLAUSE
 
 //SAL GREATER THAN SMITH AND DNAME IS RESEARCH BY WHERE CLAUSE
- SELECT ENAME,SAL,DNAME,LOC FROM EMP INNER JOIN DEPT ON EMP.DEPTNO = DEPT.DEPTNO WHERE SAL>(SELECT SAL FROM EMP WHERE ENAME='SMITH') AND DNAME='RESEARCH';
+ SELECT ENAME,SAL,DNAME,LOC FROM EMP INNER JOIN DEPT ON EMP.DEPTNO = DEPT.DEPTNO WHERE SAL>(SELECT SAL FROM EMP WHERE ENAME='SMITH') AND DNAME='RESEARCH';
 
 // BY ON CLAUSE
- SELECT ENAME,SAL,DNAME,LOC FROM EMP INNER JOIN DEPT ON EMP.DEPTNO = DEPT.DEPTNO AND SAL>(SELECT SAL FROM EMP WHERE ENAME='SMITH') AND DNAME='RESEARCH';
+ SELECT ENAME,SAL,DNAME,LOC FROM EMP INNER JOIN DEPT ON EMP.DEPTNO = DEPT.DEPTNO AND SAL>(SELECT SAL FROM EMP WHERE ENAME='SMITH') AND DNAME='RESEARCH';
 
 Natural Join
-It has two behaviours 
-if there is relationship(Common column) between the tables it behaves like inner join 
+It has two behaviours
+if there is relationship(Common column) between the tables it behaves like inner join
 if there is no relationships(NO Common Column) between the tables it behaves like Cross join
 
 For Natural join we dont have any oracle syntax we have only ANSI syntax
@@ -91,18 +91,18 @@ It is used to fetch the unmatching records from both the table along with matchi
 
 Syntax
 //LEFT outer join in oracle
-SELECT * FROM EMP,DEPT WHERE EMP.DEPTNO = DEPT.DEPTNO (+); 
+SELECT * FROM EMP,DEPT WHERE EMP.DEPTNO = DEPT.DEPTNO (+);
 
 //RIGHT outer join in oracle
 SELECT * FROM EMP,DEPT WHERE EMP.DEPTNO(+) = DEPT.DEPTNO;
 
 //FULL OUTER JOIN
 //here there is no oracle syntax so we use ansi syntax
-SELECT * from emp full outer join dept on emp.deptno = dept.deptno; 
+SELECT * from emp full outer join dept on emp.deptno = dept.deptno;
 
 
 SELF JOIN
-Joining the table by itself is known as self join or joining the same to table 
+Joining the table by itself is known as self join or joining the same to table
 Why to join the table itself?
 Data to be selected as present in the same table but in different records
 Alias name is mandatory
@@ -118,137 +118,3 @@ SELECT E1.ENAME,E1.HIREDATE,E2.ENAME AS MGR_NAME ,E2.HIREDATE AS MANAGER_HIREDAT
 Joining multiple tables
 
 If there is N number of tables then there will be N-1 conditions
-
-DDL
-
-IT IS USED TO DEALS WITH THE STRUCTURE OF THE TABLE
-With the help of ddl we can build,modify or destroy the structure of the table
-
-Statements
-CREATE,RENAME,ALTER,TRUNCATE,DROP
-
-Table Creation
-
-Tables cannot have same names
-Name of the table
-Number of columns
-Names of the Columns
-Assign datatypes for the columns
-Assign Constraints [NOT MANDATORY]
-
-CREATE TABLE CUSTOMER
-(CID NUMBER(4) PRIMARY KEY,
-CNAME VARCHAR(25) NOT NULL,
-PHONE_NO NUMBER(10) UNIQUE NOT NULL CHECK(LENGTH(PHONE_NO) =10),
-ADDRESS VARCHAR(30) NOT NULL);
-
-
-SELECT * FROM TAB;
-GIVES ALL TABLE NAMES AND THEIR TYPES
-
-DESCRIBING THE TABLE
-DESC TABLENAME;
-
-
-CREATE TABLE PRODUCT
-( PID NUMBER(2) PRIMARY KEY,
-PNAME VARCHAR(20) NOT NULL,
-PRICE NUMBER(6,2) NOT NULL CHECK(PRICE>0),
-CID NUMBER(4) REFERENCES CUSTOMER(CID));
-
-
-RENAME:
-
-USED TO CHANGE THE NAME OF THE OBJECT
-
-RENAME TABLE_NAME TO NEW_TABLE_NAME;
-
-//sql ansi
-RENAME TABLE TABLE_NAME TO NEW_TABLE_NAME;
-
-
-ALTER
-
-It is used to alter the column name
-alter table table_name add colmname datatype constraint;
-
-add column
-alter table customer add email_id char(20) unique;
-
-drop column
-alter table table_name drop column column_name;
-
-to rename a column
-alter table customer rename column phone_no to contact_no;
-
-to modify a column (DATATYPE AND CONSTRAINT)
-alter table customer modify email_id varchar(30);
-
-TRUNCATE
-It is used to delete all the records from table permenantly
-It will delete only the records but structure of table remains same
-We cannot recover truncated records
-
-truncate table table_name;
-
-DROP
-delete the table along with the structure of the table
-
-we can able to recover the drop tables using flash back.
-
-The address after droping a table is bin address
-drop table table_name;
-
-select * from recyclebin; we will get the address of the dropped table
-
-FLASHBACK
-
-It is used to recover the drop or deleted tables from the bin to database
-
-FLASHBACK TABLE TABLE_NAME TO BEFORE DROP;
-
-PURGE
-(Table should be in recycle bin then we can use this)
-It is used delete the table permenantly or it is used to delete the table from a recycle bin
-
-Note: Before dropping a table we cannot use a flashback or purge
-purge table tablename;
-
-DDL Statements are Auto Commit Statements(Automatically Saved in databases)
-
-DML
-It is used to manipulate the object by performing insertion,updating and deletion.
-
-Insert
-To insert records in table
-
-INSERT INTO Table_Name VALUES(v1,v2,v3,,,,,,,,vn);
-
-INSERT INTO TABLE_NAME (COL_NAME1,COLE_NAME2) VALUES (VALUE1,VALUE2)
-
-UPDATE
-It is used to modify an existing value
-
-UPDATE Table_Name SET Col_Name = VAlue where filter_condition
-
-Delete
-
-Used to remove a particular record from the table
-
-delete from table_name where filter condition;
-
-TCL(Transaction control Language)
-
-It is used to control the transaction in a database
-
-Commit -> It is used to save all the transactions into the database;
-
-commit;
-
-Rollback -> It is used to get back the last save transaction.
-
-rollback;
-
-SavePoint -> It is used to mask the transaction and it is used with rollback.
-
-savepoint savepoint_name;
